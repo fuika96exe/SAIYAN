@@ -17,9 +17,6 @@
 <body class="org-page-body">
 
   <!-- =========================================================================
-       1. HEADER (Consistent with Website Navigation Rules)
-       ========================================================================= -->
-    <!-- =========================================================================
        1. FLAT EDITORIAL HEADER & MOBILE NAVIGATION
        ========================================================================= -->
   <header class="site-header" role="banner">
@@ -43,12 +40,12 @@
 
       <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="youth.html" class="nav-link">FOR YOUTH</a>
+        <a href="youth.html" class="nav-link ">FOR YOUTH</a>
         <a href="organisations.html" class="nav-link active">FOR ORGANISATIONS</a>
-        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-        <a href="sailor-saiyan.html" class="nav-link">SAILOR SAIYAN</a>
+        <a href="programmes.html" class="nav-link ">PROGRAMMES</a>
+        <a href="sailor-saiyan.html" class="nav-link ">SAILOR SAIYAN</a>
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
+        <a href="about.html" class="nav-link ">ABOUT</a>
       </nav>
 
       <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
@@ -75,12 +72,12 @@
       <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
-      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
+      <li><a href="youth.html" class="mobile-nav-item ">FOR YOUTH</a></li>
       <li><a href="organisations.html" class="mobile-nav-item active">FOR ORGANISATIONS</a></li>
-      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
-      <li><a href="sailor-saiyan.html" class="mobile-nav-item">SAILOR SAIYAN</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item ">PROGRAMMES</a></li>
+      <li><a href="sailor-saiyan.html" class="mobile-nav-item ">SAILOR SAIYAN</a></li>
       <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+      <li><a href="about.html" class="mobile-nav-item ">ABOUT</a></li>
     </ul>
     <div class="mobile-nav-footer-cta">
       <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
@@ -91,70 +88,35 @@
   </nav>
 
   <main id="main-content">
-    <!-- =======================================================================
-         2. HERO SECTION
-         ======================================================================= -->
-    <section class="org-hero-section">
-      <div class="org-hero-ambient" aria-hidden="true"></div>
 
-      <div class="container">
-        <div class="org-hero-layout">
-          <!-- Left Text Content -->
-          <div class="org-hero-text">
-            <div class="join-eyebrow eyebrow-purple">
-              <span class="eyebrow-dot dot-purple"></span>
-              <span>FOR ORGANISATIONS</span>
-            </div>
+    <header class="page-intro-header theme-org">
+      <div class="page-intro-ambient" aria-hidden="true"></div>
+      <svg class="page-intro-route-svg" viewBox="0 0 1200 280" fill="none" aria-hidden="true">
+        <path d="M 50 130 C 380 190, 720 70, 1150 150" stroke="rgba(140, 120, 237, 0.18)" stroke-width="2" stroke-dasharray="6 6"/>
+        <circle cx="290" cy="155" r="15" fill="#8C78ED" fill-opacity="0.04" stroke="#8C78ED" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="290" cy="155" r="4" fill="#8C78ED" fill-opacity="0.5"/>
+        <circle cx="850" cy="115" r="16" fill="#316BFF" fill-opacity="0.04" stroke="#316BFF" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="850" cy="115" r="4.5" fill="#316BFF" fill-opacity="0.5"/>
+      </svg>
 
-            <h1 class="org-hero-heading">Bring us a real challenge.</h1>
-
-            <p class="org-hero-subline">
-              Work with young builders, mentors and partners to explore practical AI and digital solutions for your organisation.
-            </p>
-
-            <div class="org-hero-actions">
-              <a href="#challenge" class="btn btn-coral">
-                <span>BRING US A CHALLENGE</span>
-                <span>→</span>
-              </a>
-              <a href="index.html#partners" class="btn btn-purple">
-                <span>BECOME A PARTNER</span>
-              </a>
-            </div>
+      <div class="container page-intro-container">
+        <div class="page-intro-content">
+          <div class="section-eyebrow eyebrow-lavender">
+            <span>FOR ORGANISATIONS</span>
           </div>
-
-          <!-- Right Visual Card -->
-          <div class="org-hero-visual-card">
-            <div class="org-visual-inner">
-              <svg class="org-network-diagram-decor" viewBox="0 0 460 280" fill="none" aria-hidden="true">
-                <!-- Connected Problem Solving Mesh -->
-                <circle cx="90" cy="80" r="32" fill="#8C78ED" fill-opacity="0.08" stroke="#8C78ED" stroke-width="1.5"/>
-                <circle cx="370" cy="80" r="32" fill="#316BFF" fill-opacity="0.08" stroke="#316BFF" stroke-width="1.5"/>
-                <circle cx="230" cy="210" r="36" fill="#F0443E" fill-opacity="0.08" stroke="#F0443E" stroke-width="1.5"/>
-
-                <path d="M 90 80 C 180 30, 280 30, 370 80" stroke="#8C78ED" stroke-width="2" stroke-dasharray="5 5" opacity="0.6"/>
-                <path d="M 90 80 C 110 180, 160 200, 230 210" stroke="#316BFF" stroke-width="2" opacity="0.6"/>
-                <path d="M 370 80 C 350 180, 300 200, 230 210" stroke="#42C7A5" stroke-width="2" opacity="0.6"/>
-
-                <circle cx="90" cy="80" r="6" fill="#8C78ED"/>
-                <circle cx="370" cy="80" r="6" fill="#316BFF"/>
-                <circle cx="230" cy="210" r="7" fill="#F0443E"/>
-              </svg>
-
-              <div class="org-mascot-guide" title="Usei Usei Cat Collaboration Guide">
-                <img src="assets/img/usei_usei_cat_transparent.png" alt="Usei Usei Cat Guide" class="org-mascot-img" />
-                <div class="org-mascot-bubble">
-                  “Turn authentic problem briefs into tested prototypes.”
-                </div>
-              </div>
-
-              <div class="org-tag-pill tag-org">🏢 REAL-WORLD BRIEFS</div>
-              <div class="org-tag-pill tag-bilateral">🌐 CROSS-BORDER COHORTS</div>
-            </div>
+          <h1 class="page-intro-title">Bring us a challenge.</h1>
+          <p class="page-intro-lead">
+            Work with emerging builders to explore practical AI ideas, digital solutions and new opportunities.
+          </p>
+          <div class="page-intro-action">
+            <a href="#challenge" class="btn btn-coral">
+              <span>SHARE A CHALLENGE</span>
+              <span>→</span>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
     <!-- =======================================================================
          3. WHAT CAN YOU BRING? (4 Content Items)
@@ -377,57 +339,24 @@
     <!-- =======================================================================
          9. CHALLENGE CTA SECTION (Anchor: #challenge with Mock Enquiry Panel)
          ======================================================================= -->
-    <section class="final-cta-section" id="challenge" style="padding: 40px 0 45px;">
+    <section class="final-cta-section" id="final-cta">
       <div class="container">
         <div class="final-cta-card">
           <div class="final-cta-content">
-            <h2 class="final-cta-title">
-              Have a challenge worth exploring?
-            </h2>
-            <p class="final-cta-subline">
-              Tell us what you are trying to improve, build or understand. We’ll help identify a suitable next step.
-            </p>
-
+            <h2 class="final-cta-title">Have a challenge worth exploring?</h2>
+            <p class="final-cta-subline">Tell us what you are trying to improve, build or understand. We’ll help identify a suitable next step.</p>
             <div class="final-cta-buttons">
               <button type="button" class="btn btn-coral" id="openMockEnquiryBtn">
-                <span>BRING US A CHALLENGE</span>
-                <span>→</span>
+                 <span>BRING US A CHALLENGE</span>
+                 <span>→</span>
               </button>
               <a href="index.html#partners" class="btn btn-purple">
                 <span>BECOME A PARTNER</span>
               </a>
             </div>
-            
-            <p class="enquiry-note-text" style="margin-top:14px; font-size:0.78rem; color:var(--text-muted);">
-              * Online enquiry portal currently in preview mode. Click above to view prototype brief modal.
-            </p>
           </div>
-
-          <div class="cta-visual-showcase">
-            <div class="cta-illustration-frame">
-              <svg class="cta-network-skyline-vector" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 40 180 L 40 100 L 70 100 L 70 180" stroke="#316BFF" stroke-width="2.5" opacity="0.45"/>
-                <path d="M 90 180 L 90 70 L 125 70 L 125 180" stroke="#316BFF" stroke-width="2.5" opacity="0.6"/>
-                <path d="M 180 180 L 210 30 L 240 180" stroke="#8C78ED" stroke-width="3" opacity="0.75"/>
-                <path d="M 330 180 L 365 90 L 400 180" stroke="#0E7C8A" stroke-width="2.5" opacity="0.55"/>
-                <circle cx="60" cy="100" r="5" fill="#316BFF"/>
-                <circle cx="210" cy="30" r="6" fill="#8C78ED"/>
-                <circle cx="365" cy="90" r="5" fill="#42C7A5"/>
-              </svg>
-
-              <div class="cta-mascot-duo" title="Usei Usei Cat">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <polygon points="20,40 10,12 40,28" fill="#18181b"/>
-                  <polygon points="80,40 90,12 60,28" fill="#18181b"/>
-                  <ellipse cx="50" cy="52" rx="38" ry="30" fill="#18181b"/>
-                  <ellipse cx="36" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="36" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <ellipse cx="64" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="64" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <polygon points="48,63 52,63 50,66" fill="#F0443E"/>
-                </svg>
-              </div>
-            </div>
+          <div class="final-cta-visual-wrap">
+            <img src="assets/img/modal_banner.png" alt="Singapore & Sarawak AI Network" class="final-cta-illustration" />
           </div>
         </div>
       </div>
@@ -477,10 +406,10 @@
         <div>
           <h4 class="footer-heading">EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
             <li><a href="youth.html">For Youth</a></li>
             <li><a href="organisations.html">For Organisations</a></li>
             <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div>
 

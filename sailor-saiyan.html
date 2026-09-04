@@ -17,9 +17,6 @@
 <body class="sailor-page-body">
 
   <!-- =========================================================================
-       1. HEADER (Top Navigation with SAILOR SAIYAN Active Underline)
-       ========================================================================= -->
-    <!-- =========================================================================
        1. FLAT EDITORIAL HEADER & MOBILE NAVIGATION
        ========================================================================= -->
   <header class="site-header" role="banner">
@@ -43,12 +40,12 @@
 
       <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="youth.html" class="nav-link">FOR YOUTH</a>
-        <a href="organisations.html" class="nav-link">FOR ORGANISATIONS</a>
-        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
+        <a href="youth.html" class="nav-link ">FOR YOUTH</a>
+        <a href="organisations.html" class="nav-link ">FOR ORGANISATIONS</a>
+        <a href="programmes.html" class="nav-link ">PROGRAMMES</a>
         <a href="sailor-saiyan.html" class="nav-link active">SAILOR SAIYAN</a>
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
+        <a href="about.html" class="nav-link ">ABOUT</a>
       </nav>
 
       <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
@@ -75,12 +72,12 @@
       <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
-      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
-      <li><a href="organisations.html" class="mobile-nav-item">FOR ORGANISATIONS</a></li>
-      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
+      <li><a href="youth.html" class="mobile-nav-item ">FOR YOUTH</a></li>
+      <li><a href="organisations.html" class="mobile-nav-item ">FOR ORGANISATIONS</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item ">PROGRAMMES</a></li>
       <li><a href="sailor-saiyan.html" class="mobile-nav-item active">SAILOR SAIYAN</a></li>
       <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+      <li><a href="about.html" class="mobile-nav-item ">ABOUT</a></li>
     </ul>
     <div class="mobile-nav-footer-cta">
       <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
@@ -91,82 +88,35 @@
   </nav>
 
   <main id="main-content">
-    
-    <!-- =======================================================================
-         2. HERO SECTION
-         ======================================================================= -->
-    <section class="sailor-hero-section">
-      <div class="sailor-hero-ambient" aria-hidden="true"></div>
 
-      <div class="container">
-        <div class="sailor-hero-layout">
-          <!-- Left Text Content -->
-          <div class="sailor-hero-text">
-            <div class="join-eyebrow eyebrow-coral">
-              <span class="eyebrow-dot"></span>
-              <span>SINGAPORE × SARAWAK</span>
-            </div>
+    <header class="page-intro-header theme-sailor">
+      <div class="page-intro-ambient" aria-hidden="true"></div>
+      <svg class="page-intro-route-svg" viewBox="0 0 1200 280" fill="none" aria-hidden="true">
+        <path d="M 50 160 C 350 90, 750 220, 1150 130" stroke="rgba(14, 124, 138, 0.16)" stroke-width="2" stroke-dasharray="6 6"/>
+        <circle cx="280" cy="135" r="15" fill="#0E7C8A" fill-opacity="0.04" stroke="#0E7C8A" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="280" cy="135" r="4" fill="#0E7C8A" fill-opacity="0.5"/>
+        <circle cx="860" cy="165" r="16" fill="#F0443E" fill-opacity="0.04" stroke="#F0443E" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="860" cy="165" r="4.5" fill="#F0443E" fill-opacity="0.5"/>
+      </svg>
 
-            <h1 class="sailor-hero-heading">
-              Go further.<br />
-              Build across borders.
-            </h1>
-
-            <p class="sailor-hero-lead">
-              Sailor SAIYAN creates opportunities for young builders and collaborators to move between Singapore and Sarawak, exchange perspectives and work on meaningful innovation challenges.
-            </p>
-
-            <p class="sailor-hero-subline">
-              Mobility, exchange and project building for a connected future.
-            </p>
-
-            <div class="sailor-hero-actions">
-              <a href="#interest" class="btn btn-coral">
-                <span>EXPRESS YOUR INTEREST</span>
-                <span>→</span>
-              </a>
-              <a href="programmes.html" class="btn btn-cyan">
-                <span>EXPLORE OUR PROGRAMMES</span>
-              </a>
-            </div>
+      <div class="container page-intro-container">
+        <div class="page-intro-content">
+          <div class="section-eyebrow eyebrow-coral">
+            <span>SAILOR SAIYAN</span>
           </div>
-
-          <!-- Right Visual: Singapore-Sarawak Bilateral Route & Subtle Metaphor -->
-          <div class="sailor-hero-visual-slot">
-            <div class="sailor-visual-card">
-              <svg class="sailor-hero-route-svg" viewBox="0 0 460 280" fill="none" aria-hidden="true">
-                <!-- Connected Bilateral Bridges -->
-                <path d="M 80 190 C 160 80, 300 240, 380 90" stroke="rgba(14, 124, 138, 0.3)" stroke-width="2.5" stroke-dasharray="6 6"/>
-                <path d="M 80 190 Q 230 190 380 90" stroke="rgba(240, 68, 62, 0.2)" stroke-width="1.5"/>
-
-                <!-- Left Node (Singapore) -->
-                <circle cx="80" cy="190" r="14" fill="#0E7C8A" fill-opacity="0.12" stroke="#0E7C8A" stroke-width="2"/>
-                <circle cx="80" cy="190" r="5" fill="#0E7C8A"/>
-
-                <!-- Middle Exchange Node -->
-                <circle cx="230" cy="140" r="16" fill="#FFC857" fill-opacity="0.2" stroke="#FFC857" stroke-width="2"/>
-                <circle cx="230" cy="140" r="6" fill="#FFC857"/>
-
-                <!-- Right Node (Sarawak) -->
-                <circle cx="380" cy="90" r="14" fill="#F0443E" fill-opacity="0.12" stroke="#F0443E" stroke-width="2"/>
-                <circle cx="380" cy="90" r="5" fill="#F0443E"/>
-              </svg>
-
-              <div class="sailor-mascot-guide" title="Usei Usei Cat Mobility Companion">
-                <img src="assets/img/usei_usei_cat_transparent.png" alt="Usei Usei Cat" class="sailor-mascot-img" />
-                <div class="sailor-mascot-bubble">
-                  “Step into another ecosystem. Build across borders!”
-                </div>
-              </div>
-
-              <div class="sailor-node-pill pill-sg">🇸🇬 SINGAPORE NODES</div>
-              <div class="sailor-node-pill pill-mid">SHARED COHORTS</div>
-              <div class="sailor-node-pill pill-swk">🇲🇾 SARAWAK ALLIANCES</div>
-            </div>
+          <h1 class="page-intro-title">Go further.<br />Build across borders.</h1>
+          <p class="page-intro-lead">
+            A mobility and exchange initiative connecting young builders, organisations and communities across Singapore and Sarawak.
+          </p>
+          <div class="page-intro-action">
+            <a href="#interest" class="btn btn-coral">
+              <span>EXPRESS YOUR INTEREST</span>
+              <span>→</span>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
     <!-- =======================================================================
          3. WHAT IS SAILOR SAIYAN? (More than a visit — 3 Connected Blocks)
@@ -653,61 +603,6 @@
       </div>
     </section>
 
-    <!-- =======================================================================
-         10. FINAL CTA SECTION
-         ======================================================================= -->
-    <section class="final-cta-section" id="final-cta" style="padding: 35px 0 40px;">
-      <div class="container">
-        <div class="final-cta-card">
-          <div class="final-cta-content">
-            <h2 class="final-cta-title">
-              Your next project could cross a border.
-            </h2>
-            <p class="final-cta-subline">
-              Join a growing network of people who are learning, building and creating opportunities across Singapore and Sarawak.
-            </p>
-
-            <div class="final-cta-buttons">
-              <a href="#interest" class="btn btn-coral">
-                <span>EXPRESS YOUR INTEREST</span>
-                <span>→</span>
-              </a>
-              <a href="join.html" class="btn btn-cyan">
-                <span>JOIN SAIYAN</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="cta-visual-showcase">
-            <div class="cta-illustration-frame">
-              <svg class="cta-network-skyline-vector" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 40 180 L 40 100 L 70 100 L 70 180" stroke="#0E7C8A" stroke-width="2.5" opacity="0.45"/>
-                <path d="M 90 180 L 90 70 L 125 70 L 125 180" stroke="#316BFF" stroke-width="2.5" opacity="0.6"/>
-                <path d="M 180 180 L 210 30 L 240 180" stroke="#F0443E" stroke-width="3" opacity="0.75"/>
-                <path d="M 330 180 L 365 90 L 400 180" stroke="#8C78ED" stroke-width="2.5" opacity="0.55"/>
-                <circle cx="60" cy="100" r="5" fill="#0E7C8A"/>
-                <circle cx="210" cy="30" r="6" fill="#F0443E"/>
-                <circle cx="365" cy="90" r="5" fill="#42C7A5"/>
-              </svg>
-
-              <div class="cta-mascot-duo" title="Usei Usei Cat">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <polygon points="20,40 10,12 40,28" fill="#18181b"/>
-                  <polygon points="80,40 90,12 60,28" fill="#18181b"/>
-                  <ellipse cx="50" cy="52" rx="38" ry="30" fill="#18181b"/>
-                  <ellipse cx="36" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="36" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <ellipse cx="64" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="64" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <polygon points="48,63 52,63 50,66" fill="#F0443E"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- =========================================================================
@@ -753,10 +648,10 @@
         <div>
           <h4 class="footer-heading">EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
             <li><a href="youth.html">For Youth</a></li>
             <li><a href="organisations.html">For Organisations</a></li>
             <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div>
 

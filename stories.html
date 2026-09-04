@@ -17,14 +17,10 @@
 <body class="stories-page-body">
 
   <!-- =========================================================================
-       1. HEADER (Consistent with Website Navigation Rules)
-       ========================================================================= -->
-    <!-- =========================================================================
        1. FLAT EDITORIAL HEADER & MOBILE NAVIGATION
        ========================================================================= -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <!-- Brand & Mascot Logo -->
       <a href="index.html" class="brand-wrapper" aria-label="SAIYAN Homepage">
         <svg class="brand-mascot-head" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <polygon points="8,18 4,6 17,13" fill="#18181b"/>
@@ -43,12 +39,12 @@
 
       <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="youth.html" class="nav-link">FOR YOUTH</a>
-        <a href="organisations.html" class="nav-link">FOR ORGANISATIONS</a>
-        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-        <a href="sailor-saiyan.html" class="nav-link">SAILOR SAIYAN</a>
+        <a href="youth.html" class="nav-link ">FOR YOUTH</a>
+        <a href="organisations.html" class="nav-link ">FOR ORGANISATIONS</a>
+        <a href="programmes.html" class="nav-link ">PROGRAMMES</a>
+        <a href="sailor-saiyan.html" class="nav-link ">SAILOR SAIYAN</a>
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
+        <a href="about.html" class="nav-link ">ABOUT</a>
       </nav>
 
       <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
@@ -75,12 +71,12 @@
       <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
-      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
-      <li><a href="organisations.html" class="mobile-nav-item">FOR ORGANISATIONS</a></li>
-      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
-      <li><a href="sailor-saiyan.html" class="mobile-nav-item">SAILOR SAIYAN</a></li>
+      <li><a href="youth.html" class="mobile-nav-item ">FOR YOUTH</a></li>
+      <li><a href="organisations.html" class="mobile-nav-item ">FOR ORGANISATIONS</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item ">PROGRAMMES</a></li>
+      <li><a href="sailor-saiyan.html" class="mobile-nav-item ">SAILOR SAIYAN</a></li>
       <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+      <li><a href="about.html" class="mobile-nav-item ">ABOUT</a></li>
     </ul>
     <div class="mobile-nav-footer-cta">
       <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
@@ -92,122 +88,128 @@
 
   <main id="main-content">
     
+    <!-- =======================================================================
+         1. PAGE INTRO HEADER (Compact Internal Header)
+         ======================================================================= -->
+    <header class="page-intro-header theme-stories">
+      <div class="page-intro-ambient" aria-hidden="true"></div>
+      <svg class="page-intro-route-svg" viewBox="0 0 1200 280" fill="none" aria-hidden="true">
+        <path d="M 50 140 C 360 80, 720 200, 1150 130" stroke="rgba(49, 107, 255, 0.14)" stroke-width="2" stroke-dasharray="6 6"/>
+        <circle cx="270" cy="120" r="14" fill="#316BFF" fill-opacity="0.04" stroke="#316BFF" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="270" cy="120" r="4" fill="#316BFF" fill-opacity="0.5"/>
+        <circle cx="870" cy="160" r="16" fill="#F0443E" fill-opacity="0.04" stroke="#F0443E" stroke-width="1.5" stroke-opacity="0.2"/>
+        <circle cx="870" cy="160" r="4.5" fill="#F0443E" fill-opacity="0.5"/>
+      </svg>
 
-    
+      <div class="container page-intro-container">
+        <div class="page-intro-content">
+          <div class="section-eyebrow eyebrow-coral">
+            <span>STORIES</span>
+          </div>
+          <h1 class="page-intro-title">Stories from the network.</h1>
+          <p class="page-intro-lead">
+            Read about the people, projects and collaborations shaping the SAIYAN journey.
+          </p>
+        </div>
+      </div>
+    </header>
 
     <!-- =======================================================================
-         4. CATEGORY FILTERS & STORY ARCHIVE
+         2. STORIES ARCHIVE SECTION
          ======================================================================= -->
-    <section class="stories-archive-section bg-white" id="archive">
+    <section class="stories-archive-section bg-white" id="archive" style="padding-top: 48px; padding-bottom: 72px;">
       <div class="container">
-        <div class="archive-header-row" style="margin-bottom: 32px;">
-          <div>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 6px;">Latest stories</h2>
-            <p class="section-subtitle" style="text-align: left; margin-bottom: 0;">Browse articles, updates and dispatches across our network.</p>
-          </div>
-        </div>
-
-        <!-- 3-Column Stories Grid -->
+        <!-- Stories Grid -->
         <div class="stories-grid-3" id="storiesGrid">
           
-          <!-- Story 1: News -->
-          <article class="story-card" data-category="news">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-coral">
-                <span class="cover-chip">NEWS</span>
+          <!-- Story 1: Network Launch -->
+          <article class="story-archive-card">
+            <a href="story-detail.html?slug=saiyan-network-launch" class="story-card-cover-link">
+              <img src="assets/img/hero_scene_ultra_wide_21x9.png" alt="Launching a Singapore–Sarawak network for practical AI collaboration" class="story-cover-image" />
+              <span class="story-category-pill cat-coral">NETWORK</span>
+            </a>
+            <div class="story-archive-body">
+              <div class="story-meta-line">
+                <span>March 2026</span> &nbsp;•&nbsp; <span>4 min read</span>
               </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">News</span>
-              <h3 class="story-card-title">SAIYAN is taking shape.</h3>
-              <p class="story-card-summary">A new cross-border network for young AI builders, organisations and partners.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Story 2: Youth -->
-          <article class="story-card" data-category="youth">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-cyan">
-                <span class="cover-chip">YOUTH</span>
-              </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">Youth</span>
-              <h3 class="story-card-title">Building confidence through practical AI.</h3>
-              <p class="story-card-summary">How young people can move from learning concepts to exploring real projects.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
+              <h2 class="story-archive-title">
+                <a href="story-detail.html?slug=saiyan-network-launch">Launching a Singapore–Sarawak network for practical AI collaboration</a>
+              </h2>
+              <p class="story-archive-excerpt">Connecting young builders, organisations, institutions and mentors across borders to turn AI learning into real-world action.</p>
+              <div class="story-action-row">
+                <a href="story-detail.html?slug=saiyan-network-launch" class="read-story-btn">
+                  <span>READ STORY</span>
+                  <span>→</span>
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Story 3: Projects -->
-          <article class="story-card" data-category="projects">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-mint">
-                <span class="cover-chip">PROJECTS</span>
+          <!-- Story 2: AI Business Design Hackathon -->
+          <article class="story-archive-card">
+            <a href="story-detail.html?slug=ai-business-design-hackathon" class="story-card-cover-link">
+              <img src="assets/img/card_real_world_projects.jpg" alt="Turning business challenges into practical AI ideas" class="story-cover-image" />
+              <span class="story-category-pill cat-cyan">PROJECTS</span>
+            </a>
+            <div class="story-archive-body">
+              <div class="story-meta-line">
+                <span>February 2026</span> &nbsp;•&nbsp; <span>5 min read</span>
               </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">Projects</span>
-              <h3 class="story-card-title">From a real challenge to a working idea.</h3>
-              <p class="story-card-summary">A closer look at how SAIYAN approaches practical digital and AI projects.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Story 4: Mentorship -->
-          <article class="story-card" data-category="mentorship">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-purple">
-                <span class="cover-chip">MENTORSHIP</span>
-              </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">Mentorship</span>
-              <h3 class="story-card-title">Why builders need people who guide them.</h3>
-              <p class="story-card-summary">The role of mentors, trainers and practitioners in the SAIYAN network.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
+              <h2 class="story-archive-title">
+                <a href="story-detail.html?slug=ai-business-design-hackathon">Turning business challenges into practical AI ideas</a>
+              </h2>
+              <p class="story-archive-excerpt">How organisations bring real problems to youth cohorts, exploring prototypes and measurable digital outcomes.</p>
+              <div class="story-action-row">
+                <a href="story-detail.html?slug=ai-business-design-hackathon" class="read-story-btn">
+                  <span>READ STORY</span>
+                  <span>→</span>
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Story 5: Community -->
-          <article class="story-card" data-category="community">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-blue">
-                <span class="cover-chip">COMMUNITY</span>
+          <!-- Story 3: Cross-Border Exchange -->
+          <article class="story-archive-card">
+            <a href="story-detail.html?slug=cross-border-youth-collaboration" class="story-card-cover-link">
+              <img src="assets/img/card_cross_border_community.jpg" alt="Why cross-border exchange matters for emerging builders" class="story-cover-image" />
+              <span class="story-category-pill cat-yellow">EXCHANGE</span>
+            </a>
+            <div class="story-archive-body">
+              <div class="story-meta-line">
+                <span>January 2026</span> &nbsp;•&nbsp; <span>4 min read</span>
               </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">Community</span>
-              <h3 class="story-card-title">A community built across borders.</h3>
-              <p class="story-card-summary">Connecting people, skills and opportunities across Singapore and Sarawak.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
+              <h2 class="story-archive-title">
+                <a href="story-detail.html?slug=cross-border-youth-collaboration">Why cross-border exchange matters for emerging builders</a>
+              </h2>
+              <p class="story-archive-excerpt">Stepping into different ecosystems, exchanging perspectives, and building long-lasting relationships across Singapore and Sarawak.</p>
+              <div class="story-action-row">
+                <a href="story-detail.html?slug=cross-border-youth-collaboration" class="read-story-btn">
+                  <span>READ STORY</span>
+                  <span>→</span>
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Story 6: Cross-border -->
-          <article class="story-card" data-category="cross-border">
-            <div class="story-card-cover">
-              <div class="cover-art-box cover-bg-sky">
-                <span class="cover-chip">CROSS-BORDER</span>
+          <!-- Story 4: From Learning to Building -->
+          <article class="story-archive-card">
+            <a href="story-detail.html?slug=from-learning-to-building" class="story-card-cover-link">
+              <img src="assets/img/card_build_and_ship.jpg" alt="From learning AI to building something real" class="story-cover-image" />
+              <span class="story-category-pill cat-lavender">YOUTH</span>
+            </a>
+            <div class="story-archive-body">
+              <div class="story-meta-line">
+                <span>December 2025</span> &nbsp;•&nbsp; <span>3 min read</span>
               </div>
-            </div>
-            <div class="story-card-body">
-              <span class="story-cat-badge">Cross-border</span>
-              <h3 class="story-card-title">Exploring new perspectives together.</h3>
-              <p class="story-card-summary">Cross-border collaboration, mobility and shared learning through SAIYAN.</p>
-              <div class="story-card-footer">
-                <span class="story-status-badge">Coming soon</span>
+              <h2 class="story-archive-title">
+                <a href="story-detail.html?slug=from-learning-to-building">From learning AI to building something real</a>
+              </h2>
+              <p class="story-archive-excerpt">How young people develop genuine confidence by shipping functional digital prototypes under experienced mentorship.</p>
+              <div class="story-action-row">
+                <a href="story-detail.html?slug=from-learning-to-building" class="read-story-btn">
+                  <span>READ STORY</span>
+                  <span>→</span>
+                </a>
               </div>
             </div>
           </article>
@@ -217,63 +219,28 @@
     </section>
 
     <!-- =======================================================================
-         5. FINAL CTA SECTION
+         3. FINAL CTA SECTION
          ======================================================================= -->
-    <section class="final-cta-section" id="final-cta" style="padding: 35px 0 40px;">
+    <section class="final-cta-section" id="final-cta">
       <div class="container">
         <div class="final-cta-card">
           <div class="final-cta-content">
-            <h2 class="final-cta-title">
-              Want to be part of the next story?
-            </h2>
-            <p class="final-cta-subline">
-              Join the builders, mentors and organisations shaping what comes next.
-            </p>
-
+            <h2 class="final-cta-title">Build something real with us.</h2>
+            <p class="final-cta-subline">Join the network, bring us a challenge or explore the programmes behind these stories.</p>
             <div class="final-cta-buttons">
-              <a href="join.html" class="btn btn-coral">
-                <span>JOIN SAIYAN</span>
-                <span>→</span>
-              </a>
-              <a href="organisations.html#challenge" class="btn btn-cyan">
-                <span>BRING US A CHALLENGE</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="cta-visual-showcase">
-            <div class="cta-illustration-frame">
-              <svg class="cta-network-skyline-vector" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 40 180 L 40 100 L 70 100 L 70 180" stroke="#0E7C8A" stroke-width="2.5" opacity="0.45"/>
-                <path d="M 90 180 L 90 70 L 125 70 L 125 180" stroke="#316BFF" stroke-width="2.5" opacity="0.6"/>
-                <path d="M 180 180 L 210 30 L 240 180" stroke="#F0443E" stroke-width="3" opacity="0.75"/>
-                <path d="M 330 180 L 365 90 L 400 180" stroke="#8C78ED" stroke-width="2.5" opacity="0.55"/>
-                <circle cx="60" cy="100" r="5" fill="#0E7C8A"/>
-                <circle cx="210" cy="30" r="6" fill="#F0443E"/>
-                <circle cx="365" cy="90" r="5" fill="#42C7A5"/>
-              </svg>
-
-              <div class="cta-mascot-duo" title="Usei Usei Cat">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <polygon points="20,40 10,12 40,28" fill="#18181b"/>
-                  <polygon points="80,40 90,12 60,28" fill="#18181b"/>
-                  <ellipse cx="50" cy="52" rx="38" ry="30" fill="#18181b"/>
-                  <ellipse cx="36" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="36" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <ellipse cx="64" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="64" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <polygon points="48,63 52,63 50,66" fill="#F0443E"/>
-                </svg>
-              </div>
+              <a href="join.html" class="btn btn-coral"><span>JOIN SAIYAN</span><span>→</span></a>
+              <a href="organisations.html#challenge" class="btn btn-cyan"><span>BRING US A CHALLENGE</span></a>
+              <a href="programmes.html" class="btn btn-purple"><span>EXPLORE PROGRAMMES</span></a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- =========================================================================
-       6. FOOTER
+       4. SITE FOOTER
        ========================================================================= -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="position:relative; z-index:10;">
@@ -315,10 +282,10 @@
         <div>
           <h4 class="footer-heading">EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
             <li><a href="youth.html">For Youth</a></li>
             <li><a href="organisations.html">For Organisations</a></li>
             <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div>
 
@@ -328,44 +295,36 @@
             <li><a href="programmes.html">SAIYAN Academy</a></li>
             <li><a href="programmes.html">SAIYAN Missions</a></li>
             <li><a href="programmes.html">SAIYAN Build</a></li>
-            <li><a href="programmes.html">Sailor SAIYAN</a></li>
+            <li><a href="sailor-saiyan.html">Sailor SAIYAN</a></li>
             <li><a href="programmes.html">SAIYAN Opportunities</a></li>
           </ul>
         </div>
-
-        
       </div>
 
       <div class="footer-bottom">
         <div class="footer-copyright">&copy; 2026 SAIYAN. All rights reserved.</div>
         <div class="footer-region-badge">
           <svg class="flag-svg" viewBox="0 0 24 16" width="20" height="13.3" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="24" height="8" fill="#ED2939"/>
-  <rect y="8" width="24" height="8" fill="#FFFFFF"/>
-  <circle cx="5.5" cy="4" r="2.8" fill="#FFFFFF"/>
-  <circle cx="6.5" cy="4" r="2.5" fill="#ED2939"/>
-  <circle cx="8" cy="2.5" r="0.4" fill="#FFFFFF"/>
-  <circle cx="9" cy="3.5" r="0.4" fill="#FFFFFF"/>
-  <circle cx="8.6" cy="4.8" r="0.4" fill="#FFFFFF"/>
-  <circle cx="7.4" cy="4.8" r="0.4" fill="#FFFFFF"/>
-  <circle cx="7" cy="3.5" r="0.4" fill="#FFFFFF"/>
-</svg>
+            <rect width="24" height="8" fill="#ED2939"/>
+            <rect y="8" width="24" height="8" fill="#FFFFFF"/>
+            <circle cx="5.5" cy="4" r="2.8" fill="#FFFFFF"/>
+            <circle cx="6.5" cy="4" r="2.5" fill="#ED2939"/>
+            <circle cx="8" cy="2.5" r="0.4" fill="#FFFFFF"/>
+            <circle cx="9" cy="3.5" r="0.4" fill="#FFFFFF"/>
+            <circle cx="8.6" cy="4.8" r="0.4" fill="#FFFFFF"/>
+            <circle cx="7.4" cy="4.8" r="0.4" fill="#FFFFFF"/>
+            <circle cx="7" cy="3.5" r="0.4" fill="#FFFFFF"/>
+          </svg>
           <span class="region-text">Singapore</span>
           <span class="region-cross">×</span>
           <span class="region-text">Sarawak</span>
           <svg class="flag-svg" viewBox="0 0 24 16" width="20" height="13.3" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Yellow Field -->
-  <rect width="24" height="16" fill="#FFD100"/>
-  <!-- Diagonal Black Stripe -->
-  <polygon points="0,0 24,12 24,16 0,4" fill="#000000"/>
-  <!-- Diagonal Red Stripe -->
-  <polygon points="0,4 24,16 24,16 0,16" fill="#D90000" opacity="0"/>
-  <polygon points="0,0 24,12 24,8 0,0" fill="#D90000"/>
-  <!-- 9-pointed Yellow Star in Center -->
-  <circle cx="12" cy="8" r="2.2" fill="#FFD100"/>
-  <!-- Precise 9-point star shape -->
-  <path d="M 12 5.6 L 12.6 7.2 L 14.2 6.8 L 13.2 8.1 L 14.4 9.3 L 12.8 9.5 L 12 11 L 11.2 9.5 L 9.6 9.3 L 10.8 8.1 L 9.8 6.8 L 11.4 7.2 Z" fill="#FFD100"/>
-</svg>
+            <rect width="24" height="16" fill="#FFD100"/>
+            <polygon points="0,0 24,12 24,16 0,4" fill="#000000"/>
+            <polygon points="0,0 24,12 24,8 0,0" fill="#D90000"/>
+            <circle cx="12" cy="8" r="2.2" fill="#FFD100"/>
+            <path d="M 12 5.6 L 12.6 7.2 L 14.2 6.8 L 13.2 8.1 L 14.4 9.3 L 12.8 9.5 L 12 11 L 11.2 9.5 L 9.6 9.3 L 10.8 8.1 L 9.8 6.8 L 11.4 7.2 Z" fill="#FFD100"/>
+          </svg>
         </div>
         <div class="footer-legal-links">
           <a href="privacy.html">Privacy Policy</a>
@@ -375,48 +334,5 @@
     </div>
   </footer>
 
-  <script src="assets/stories.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const closeBtn = document.getElementById('mobileDrawerClose');
-      const drawer = document.getElementById('mobileNavDrawer');
-      const backdrop = document.getElementById('mobileNavBackdrop');
-      const navLinks = document.querySelectorAll('.mobile-nav-item, .mobile-nav-footer-cta a');
-
-      function openMenu() {
-        if (!drawer || !backdrop || !menuBtn) return;
-        drawer.classList.add('is-open');
-        backdrop.classList.add('is-open');
-        menuBtn.setAttribute('aria-expanded', 'true');
-        drawer.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('mobile-nav-locked');
-      }
-
-      function closeMenu() {
-        if (!drawer || !backdrop || !menuBtn) return;
-        drawer.classList.remove('is-open');
-        backdrop.classList.remove('is-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('mobile-nav-locked');
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', openMenu);
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      if (backdrop) backdrop.addEventListener('click', closeMenu);
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
-          closeMenu();
-        }
-      });
-    });
-  </script>
 </body>
 </html>

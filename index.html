@@ -12,7 +12,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260904_03" />
+  <style>
+    /* Critical Rail Fix: Guarantees fixed viewport floating above every section */
+    @media (min-width: 992px) {
+      .hero-journey-rail {
+        position: fixed !important;
+        left: 28px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 99990 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        pointer-events: auto !important;
+        width: 48px !important;
+      }
+      .persistent-mascot-container {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 99995 !important;
+        pointer-events: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,12 +67,12 @@
 
       <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="youth.html" class="nav-link">FOR YOUTH</a>
-        <a href="organisations.html" class="nav-link">FOR ORGANISATIONS</a>
-        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-        <a href="sailor-saiyan.html" class="nav-link">SAILOR SAIYAN</a>
+        <a href="youth.html" class="nav-link ">FOR YOUTH</a>
+        <a href="organisations.html" class="nav-link ">FOR ORGANISATIONS</a>
+        <a href="programmes.html" class="nav-link ">PROGRAMMES</a>
+        <a href="sailor-saiyan.html" class="nav-link ">SAILOR SAIYAN</a>
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
+        <a href="about.html" class="nav-link ">ABOUT</a>
       </nav>
 
       <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
@@ -75,12 +99,12 @@
       <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
-      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
-      <li><a href="organisations.html" class="mobile-nav-item">FOR ORGANISATIONS</a></li>
-      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
-      <li><a href="sailor-saiyan.html" class="mobile-nav-item">SAILOR SAIYAN</a></li>
+      <li><a href="youth.html" class="mobile-nav-item ">FOR YOUTH</a></li>
+      <li><a href="organisations.html" class="mobile-nav-item ">FOR ORGANISATIONS</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item ">PROGRAMMES</a></li>
+      <li><a href="sailor-saiyan.html" class="mobile-nav-item ">SAILOR SAIYAN</a></li>
       <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+      <li><a href="about.html" class="mobile-nav-item ">ABOUT</a></li>
     </ul>
     <div class="mobile-nav-footer-cta">
       <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
@@ -90,66 +114,44 @@
     </div>
   </nav>
 
+  <!-- Global Left-Side Vertical Journey Route with Mascot (Desktop Only, direct child of body) -->
+  <div class="hero-journey-rail" id="journeyRail" aria-hidden="true">
+    <span class="hero-journey-label">FOLLOW THE JOURNEY</span>
+    <div class="journey-node node-coral" id="railNode0"></div>
+    <div class="journey-line-segment"></div>
+    <div class="journey-node node-cyan" id="railNode1"></div>
+    <div class="journey-line-segment"></div>
+    <div class="journey-node node-navy" id="railNode2"></div>
+
+    <!-- Left Rail Mascot Container (Desktop Only, constrained exclusively to left track) -->
+    <div class="persistent-mascot-container" id="persistentMascot">
+      <!-- Mascot Speech Bubble -->
+      <div class="mascot-speech-bubble" id="mascotBubble" role="dialog" aria-label="Usei Usei Cat message">
+        <p class="speech-bubble-text" id="mascotBubbleText">Hi, I’m Usei.<br />Follow me through SAIYAN.</p>
+        <button class="speech-bubble-action" id="bubbleExploreBtn">Explore with me →</button>
+      </div>
+
+      <!-- Mascot Button Trigger -->
+      <button 
+        type="button"
+        class="hero-mascot-btn" 
+        id="heroMascotBtn" 
+        aria-label="Meet Usei Usei, your SAIYAN guide"
+        title="Click to interact with Usei Usei Cat"
+      >
+        <img src="assets/img/usei_usei_cat_transparent.png" alt="Usei Usei Cat Companion" style="width:100%; height:auto;" />
+      </button>
+    </div>
+  </div>
+
   <main>
     <!-- =======================================================================
-         2. UNIFIED JOURNEY SECTION (HERO + SECTION 2 WITH CONVEX CURVED BOUNDARY & SMOOTH ROUTE)
+         2A. HERO SECTION
          ======================================================================= -->
-    <div class="unified-journey-wrapper" id="journeyWrapper">
-      
-      <!-- Convex (凸) Crisp Clean Designed Curved Divider between Hero and Section 2 -->
-      <div class="hero-bottom-curve-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-          <path d="M 0 90 Q 720 0 1440 90 L 1440 90 L 0 90 Z" fill="#FFFDF8" />
-        </svg>
-      </div>
+    <section class="hero-section" id="hero">
+      <div class="hero-curve-bg" aria-hidden="true"></div>
 
-      <!-- Shared SVG Canvas for the Single Continuous Route (Hero -> Sec 2) -->
-      <svg class="shared-journey-svg-canvas" id="sharedSvgCanvas" viewBox="0 0 1440 1200" preserveAspectRatio="none" aria-hidden="true">
-        <!-- Smooth, organic S-Curve Dotted Route from (720, 540) to exact destination node at (1360, 1140) -->
-        <path id="continuousJourneyPath" class="shared-journey-path" d="M 720 540 C 690 620, 480 660, 440 760 C 405 845, 455 980, 530 1080 C 620 1140, 960 1120, 1360 1140" />
-        
-        <!-- Only Start Node (Hero) and Rightmost Destination Node (Green) -->
-        <circle id="journeyNode0" class="journey-node-dot" cx="720" cy="540" fill="#F0443E" />
-        <circle id="journeyNode3" class="journey-node-dot" cx="1360" cy="1140" fill="#42C7A5" />
-      </svg>
-
-      <!-- Persistent Usei Usei Cat Container -->
-      <div class="persistent-mascot-container" id="persistentMascot">
-        <!-- Mascot Speech Bubble -->
-        <div class="mascot-speech-bubble" id="mascotBubble" role="dialog" aria-label="Usei Usei Cat message">
-          <p class="speech-bubble-text" id="mascotBubbleText">Hi, I’m Usei.<br />Follow me through SAIYAN.</p>
-          <button class="speech-bubble-action" id="bubbleExploreBtn">Explore with me →</button>
-        </div>
-
-        <!-- Mascot Button Trigger with Pulsing Cue -->
-        <button 
-          type="button"
-          class="hero-mascot-btn" 
-          id="heroMascotBtn" 
-          aria-label="Meet Usei Usei, your SAIYAN guide"
-          title="Click to interact with Usei Usei Cat"
-        >
-          <img src="assets/img/usei_usei_cat_transparent.png" alt="Usei Usei Cat Companion" style="width:100%; height:auto;" />
-        </button>
-      </div>
-
-      <!-- =====================================================================
-           2A. HERO SECTION
-           ===================================================================== -->
-      <section class="hero-section" id="hero">
-        <div class="hero-curve-bg" aria-hidden="true"></div>
-
-        <!-- Left Vertical Dotted Journey Route -->
-        <div class="hero-journey-rail" id="journeyRail" aria-hidden="true">
-          <span class="hero-journey-label">FOLLOW THE JOURNEY</span>
-          <div class="journey-node node-coral"></div>
-          <div class="journey-line-segment"></div>
-          <div class="journey-node node-cyan"></div>
-          <div class="journey-line-segment"></div>
-          <div class="journey-node node-navy"></div>
-        </div>
-
-        <!-- Left Content Container -->
+      <!-- Left Content Container -->
         <div class="container hero-layout-wrapper">
           <div class="hero-text-block">
             <div class="section-eyebrow">
@@ -215,6 +217,9 @@
 
         <div class="container" style="position:relative;">
           <div class="section-header">
+            <div class="section-eyebrow eyebrow-cyan">
+              <span>01 / WHAT WE DO</span>
+            </div>
             <h2 class="section-title">More than learning AI.</h2>
             <p class="section-subtitle">
               From learning to making an impact — SAIYAN connects builders,<br />
@@ -278,7 +283,6 @@
 
         </div>
       </section>
-    </div>
 
     <!-- =======================================================================
          3. SECTION: WHERE DO YOU BELONG? (Sky & Clouds Atmosphere Background)
@@ -287,8 +291,10 @@
       <div class="belong-ambient-glow" aria-hidden="true"></div>
       <div class="container" style="position:relative; z-index:20;">
         <div class="section-header">
+          <div class="section-eyebrow eyebrow-coral">
+            <span>02 / WHO IT IS FOR</span>
+          </div>
           <h2 class="section-title">Where do you belong?</h2>
-          <p class="section-subtitle">We have a place for you.</p>
         </div>
 
         <!-- 5 Cards Structured in Centred 3 + 2 Layout -->
@@ -344,6 +350,9 @@
       <div class="programmes-ambient-bg" aria-hidden="true"></div>
       <div class="container" style="position:relative; z-index:20;">
         <div class="programmes-header">
+          <div class="section-eyebrow eyebrow-yellow" style="margin-bottom: 8px;">
+            <span>03 / OUR PROGRAMMES</span>
+          </div>
           <h2 class="programmes-title">Our programmes</h2>
           <div class="programmes-title-underline" aria-hidden="true"></div>
         </div>
@@ -449,224 +458,197 @@
 
         <div class="stories-grid">
           <!-- Story 1 -->
-          <article class="story-card" onclick="window.openPlaceholderModal('Building for real communities', 'How cross-border youth teams are using AI to solve everyday challenges in education, healthcare and ecology.')">
-            <div class="story-thumb">
-              <svg viewBox="0 0 360 180" width="100%" height="100%">
-                <rect width="360" height="180" fill="#0D2137"/>
-                <circle cx="100" cy="90" r="40" fill="#42C7A5" opacity="0.45"/>
-                <circle cx="260" cy="90" r="40" fill="#316BFF" opacity="0.45"/>
-                <line x1="100" y1="90" x2="260" y2="90" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 4"/>
-                <circle cx="180" cy="90" r="10" fill="#FFC857"/>
-              </svg>
-            </div>
+          <article class="story-card">
+            <a href="story-detail.html?slug=saiyan-network-launch" class="story-card-cover-link">
+              <img src="assets/img/hero_scene_ultra_wide_21x9.png" alt="Launching a Singapore–Sarawak network for practical AI collaboration" class="story-cover-image" />
+              <span class="story-category-pill cat-coral">NETWORK</span>
+            </a>
             <div class="story-body">
-              <h3 class="story-title">Building for real communities</h3>
-              <p class="story-desc">Youth teams are using AI to solve everyday challenges in education, environment and community welfare.</p>
-              <div class="story-link-text">Read the story <span>→</span></div>
+              <h3 class="story-title"><a href="story-detail.html?slug=saiyan-network-launch" style="color:inherit; text-decoration:none;">Launching a Singapore–Sarawak network for practical AI collaboration</a></h3>
+              <p class="story-desc">Connecting young builders, organisations, institutions and mentors across borders to turn AI learning into real-world action.</p>
+              <a href="story-detail.html?slug=saiyan-network-launch" class="story-link-text">Read the story <span>→</span></a>
             </div>
           </article>
 
           <!-- Story 2 -->
-          <article class="story-card" onclick="window.openPlaceholderModal('From learning to shipping', 'From classrooms to real world — ideas built, tested and launched by cross-border teams with industry mentors.')">
-            <div class="story-thumb">
-              <svg viewBox="0 0 360 180" width="100%" height="100%">
-                <rect width="360" height="180" fill="#151C28"/>
-                <rect x="50" y="35" width="260" height="110" rx="8" fill="#1E293B"/>
-                <polyline points="70,115 130,70 190,95 280,50" stroke="#F0443E" stroke-width="3.5" fill="none"/>
-                <circle cx="280" cy="50" r="6" fill="#42C7A5"/>
-              </svg>
-            </div>
+          <article class="story-card">
+            <a href="story-detail.html?slug=ai-business-design-hackathon" class="story-card-cover-link">
+              <img src="assets/img/card_real_world_projects.jpg" alt="Turning business challenges into practical AI ideas" class="story-cover-image" />
+              <span class="story-category-pill cat-cyan">PROJECTS</span>
+            </a>
             <div class="story-body">
-              <h3 class="story-title">From learning to shipping</h3>
-              <p class="story-desc">From hackathon prompts to deployed prototypes — real projects launched with verified mentor guidance.</p>
-              <div class="story-link-text">Read the story <span>→</span></div>
+              <h3 class="story-title"><a href="story-detail.html?slug=ai-business-design-hackathon" style="color:inherit; text-decoration:none;">Turning business challenges into practical AI ideas</a></h3>
+              <p class="story-desc">How organisations bring real problems to youth cohorts, exploring prototypes and measurable digital outcomes.</p>
+              <a href="story-detail.html?slug=ai-business-design-hackathon" class="story-link-text">Read the story <span>→</span></a>
             </div>
           </article>
 
           <!-- Story 3 -->
-          <article class="story-card" onclick="window.openPlaceholderModal('Across borders, together', 'Singapore–Sarawak student exchanges and fellowships turning bilateral connection into lasting innovation impact.')">
-            <div class="story-thumb">
-              <svg viewBox="0 0 360 180" width="100%" height="100%">
-                <rect width="360" height="180" fill="#0E1A29"/>
-                <circle cx="180" cy="90" r="52" fill="#FFC857" opacity="0.35"/>
-                <path d="M110 120 Q 180 50 250 120" stroke="#52C9D9" stroke-width="4" fill="none"/>
-                <circle cx="110" cy="120" r="6" fill="#316BFF"/>
-                <circle cx="250" cy="120" r="6" fill="#F0443E"/>
-              </svg>
-            </div>
+          <article class="story-card">
+            <a href="story-detail.html?slug=cross-border-youth-collaboration" class="story-card-cover-link">
+              <img src="assets/img/card_cross_border_community.jpg" alt="Why cross-border exchange matters for emerging builders" class="story-cover-image" />
+              <span class="story-category-pill cat-yellow">EXCHANGE</span>
+            </a>
             <div class="story-body">
-              <h3 class="story-title">Across borders, together</h3>
-              <p class="story-desc">Bilateral mobility, cultural exchanges and co-creation tracks that turn friendship into lasting impact.</p>
-              <div class="story-link-text">Read the story <span>→</span></div>
+              <h3 class="story-title"><a href="story-detail.html?slug=cross-border-youth-collaboration" style="color:inherit; text-decoration:none;">Why cross-border exchange matters for emerging builders</a></h3>
+              <p class="story-desc">Stepping into different ecosystems, exchanging perspectives, and building long-lasting relationships across Singapore and Sarawak.</p>
+              <a href="story-detail.html?slug=cross-border-youth-collaboration" class="story-link-text">Read the story <span>→</span></a>
             </div>
           </article>
+        </div>
+
+        <div style="text-align:center; margin-top:28px;">
+          <a href="stories.html" class="btn btn-outline" style="border-color:#cbd5e1; color:#0f172a; font-size:13px; font-weight:700; letter-spacing:0.06em;">
+            <span>VIEW ALL STORIES</span>
+            <span>→</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- =======================================================================
-         6. SECTION: PARTNER NETWORK (Concentric Orbital Network System)
+            <!-- =======================================================================
+         6. SECTION 6: PARTNER ECOSYSTEM (TWO-COLUMN DESKTOP + VERTICAL MOBILE ROUTE)
          ======================================================================= -->
     <section class="partner-network-section" id="partners">
-      <!-- Premium Warm Ivory & Pale Blue Ambient Lighting -->
-      <div class="partner-network-ambient" aria-hidden="true"></div>
+      <div class="partner-bg-glow" aria-hidden="true"></div>
 
       <div class="container" style="position:relative; z-index:10;">
-        <div class="partner-network-header">
-          <h2 class="partner-network-title">Built across borders.</h2>
-          <p class="partner-network-subtitle">
-            A connected network of organisations, universities, communities and institutions building meaningful AI opportunities together.
-          </p>
-        </div>
+        <div class="partner-2col-layout">
+          
+          <!-- LEFT COLUMN: Meaning, Mission & Call to Action -->
+          <div class="partner-left-column">
+            <div class="section-eyebrow eyebrow-lavender" style="margin-bottom: 16px;">
+              <span>04 / OUR NETWORK</span>
+            </div>
 
-        <!-- Central Orbital Network Canvas & Visual System -->
-        <div class="orbital-network-wrapper">
-          <!-- Responsive Concentric SVG Orbit Rings -->
-          <svg class="orbital-rings-svg" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Concentric Orbital Ellipses with Subtle Gradient Stems -->
-            <ellipse cx="480" cy="320" rx="190" ry="110" stroke="rgba(49, 107, 255, 0.22)" stroke-width="1.5" stroke-dasharray="4 6"/>
-            <ellipse cx="480" cy="320" rx="310" ry="180" stroke="rgba(14, 124, 138, 0.22)" stroke-width="1.5"/>
-            <ellipse cx="480" cy="320" rx="420" ry="250" stroke="rgba(140, 120, 237, 0.2)" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <h2 class="partner-left-heading">
+              Built across<br />borders.
+            </h2>
 
-            <!-- Subtle Inter-Orbit Trajectory Lines -->
-            <path d="M 180 200 Q 320 120 480 320" stroke="rgba(240, 68, 62, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
-            <path d="M 780 180 Q 640 140 480 320" stroke="rgba(66, 199, 165, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
-            <path d="M 210 460 Q 340 500 480 320" stroke="rgba(255, 117, 72, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
-            <path d="M 750 460 Q 620 490 480 320" stroke="rgba(140, 120, 237, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <p class="partner-left-lead">
+              SAIYAN connects organisations, universities, communities and institutions around a shared network for practical AI opportunities.
+            </p>
 
-            <!-- Orbit Constellation Dots -->
-            <circle cx="340" cy="245" r="3.5" fill="#316BFF" opacity="0.7"/>
-            <circle cx="620" cy="245" r="3.5" fill="#0E7C8A" opacity="0.7"/>
-            <circle cx="320" cy="400" r="3" fill="#FF7548" opacity="0.7"/>
-            <circle cx="640" cy="395" r="3" fill="#8C78ED" opacity="0.7"/>
-          </svg>
+            <p class="partner-left-statement">
+              Different contributors. One connected ecosystem.
+            </p>
 
-          <!-- Central SAIYAN Network Hub -->
-          <div class="orbital-central-hub" onclick="window.openPlaceholderModal('SAIYAN Network Hub', 'The central bilateral coordination nexus connecting youth builders with global opportunities.')" title="SAIYAN Central Connector">
-            <div class="hub-pulse-ring" aria-hidden="true"></div>
-            <div class="hub-core-card">
-              <svg class="hub-cat-logo" viewBox="0 0 40 40" fill="none">
-                <polygon points="8,18 4,6 17,13" fill="#071522"/>
-                <polygon points="32,18 36,6 23,13" fill="#071522"/>
-                <ellipse cx="20" cy="22" rx="16" ry="13" fill="#071522"/>
-                <ellipse cx="14" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
-                <ellipse cx="14" cy="21" rx="1.8" ry="4" fill="#000000"/>
-                <ellipse cx="26" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
-                <ellipse cx="26" cy="21" rx="1.8" ry="4" fill="#000000"/>
-                <circle cx="15" cy="19" r="1.2" fill="#ffffff"/>
-                <circle cx="27" cy="19" r="1.2" fill="#ffffff"/>
-                <polygon points="19,25 21,25 20,27" fill="#F0443E"/>
+            <div class="partner-left-cta-wrap">
+              <a href="organisations.html#challenge" class="btn btn-coral">
+                <span>BECOME A PARTNER</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Visual Stage with Central Hub & 5 Connected Nodes -->
+          <div class="partner-right-visual-column">
+            <div class="partner-visual-stage">
+              
+              <!-- Desktop Concentric Rings & Radial SVG Connectors -->
+              <svg class="partner-concentric-svg" viewBox="0 0 680 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- 3 Concentric Rings around Central Hub (cx:340, cy:310) -->
+                <circle cx="340" cy="310" r="120" stroke="rgba(49, 107, 255, 0.28)" stroke-width="1.5" />
+                <circle cx="340" cy="310" r="190" stroke="rgba(14, 124, 138, 0.22)" stroke-width="1.5" stroke-dasharray="6 6" />
+                <circle cx="340" cy="310" r="260" stroke="rgba(140, 120, 237, 0.18)" stroke-width="1.5" stroke-dasharray="3 5" />
+
+                <!-- Visible Radial Connector Lines -->
+                <path d="M 340 215 L 340 100" stroke="rgba(66, 199, 165, 0.45)" stroke-width="2" stroke-dasharray="4 4" />
+                <circle cx="340" cy="100" r="4" fill="#42C7A5" />
+
+                <path d="M 425 250 C 470 215, 505 195, 545 180" stroke="rgba(49, 107, 255, 0.45)" stroke-width="2" stroke-dasharray="4 4" />
+                <circle cx="545" cy="180" r="4" fill="#316BFF" />
+
+                <path d="M 425 370 C 470 410, 500 435, 530 455" stroke="rgba(7, 21, 34, 0.35)" stroke-width="2" stroke-dasharray="4 4" />
+                <circle cx="530" cy="455" r="4" fill="#071522" />
+
+                <path d="M 255 370 C 210 410, 180 435, 150 455" stroke="rgba(255, 117, 72, 0.45)" stroke-width="2" stroke-dasharray="4 4" />
+                <circle cx="150" cy="455" r="4" fill="#FF7548" />
+
+                <path d="M 255 250 C 210 215, 175 195, 135 180" stroke="rgba(240, 68, 62, 0.45)" stroke-width="2" stroke-dasharray="4 4" />
+                <circle cx="135" cy="180" r="4" fill="#F0443E" />
               </svg>
-              <div class="hub-brand-name">SAIYAN</div>
-              <div class="hub-tagline">NETWORK HUB</div>
+
+              <!-- Central SAIYAN Network Hub -->
+              <div class="partner-center-hub" onclick="window.openPartnerModal()" title="SAIYAN Network Hub">
+                <div class="hub-ring-glow" aria-hidden="true"></div>
+                <div class="hub-ring-card">
+                  <svg class="hub-ring-logo" viewBox="0 0 40 40" fill="none">
+                    <polygon points="8,18 4,6 17,13" fill="#071522"/>
+                    <polygon points="32,18 36,6 23,13" fill="#071522"/>
+                    <ellipse cx="20" cy="22" rx="16" ry="13" fill="#071522"/>
+                    <ellipse cx="14" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+                    <ellipse cx="14" cy="21" rx="1.8" ry="4" fill="#000000"/>
+                    <ellipse cx="26" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+                    <ellipse cx="26" cy="21" rx="1.8" ry="4" fill="#000000"/>
+                    <circle cx="15" cy="19" r="1.2" fill="#ffffff"/>
+                    <circle cx="27" cy="19" r="1.2" fill="#ffffff"/>
+                    <polygon points="19,25 21,25 20,27" fill="#F0443E"/>
+                  </svg>
+                  <span class="hub-ring-brand">SAIYAN</span>
+                  <span class="hub-ring-label">NETWORK HUB</span>
+                </div>
+              </div>
+
+              <!-- Continuous Mobile Vertical Route SVG (Rendered on Mobile only) -->
+              <div class="mobile-vertical-route-track" aria-hidden="true"></div>
+
+              <!-- 5 Clean Partner Category Nodes (No empty placeholder clutter) -->
+
+              <!-- Node 1: UNIVERSITY PARTNERS -->
+              <div class="partner-node node-top" onclick="window.openPartnerModal()">
+                <span class="node-connector-dot dot-teal" aria-hidden="true"></span>
+                <div class="node-header">
+                  <span class="node-dot dot-teal"></span>
+                  <span class="node-title">UNIVERSITY PARTNERS</span>
+                </div>
+                <p class="node-desc">Learning, research and student pathways.</p>
+              </div>
+
+              <!-- Node 2: INDUSTRY PARTNERS -->
+              <div class="partner-node node-upper-right" onclick="window.openPartnerModal()">
+                <span class="node-connector-dot dot-blue" aria-hidden="true"></span>
+                <div class="node-header">
+                  <span class="node-dot dot-blue"></span>
+                  <span class="node-title">INDUSTRY PARTNERS</span>
+                </div>
+                <p class="node-desc">Real challenges, briefs and implementation opportunities.</p>
+              </div>
+
+              <!-- Node 3: INSTITUTIONAL PARTNERS -->
+              <div class="partner-node node-lower-right" onclick="window.openPartnerModal()">
+                <span class="node-connector-dot dot-navy" aria-hidden="true"></span>
+                <div class="node-header">
+                  <span class="node-dot dot-navy"></span>
+                  <span class="node-title">INSTITUTIONAL PARTNERS</span>
+                </div>
+                <p class="node-desc">Public initiatives, ecosystem support and coordination.</p>
+              </div>
+
+              <!-- Node 4: COMMUNITY PARTNERS -->
+              <div class="partner-node node-lower-left" onclick="window.openPartnerModal()">
+                <span class="node-connector-dot dot-orange" aria-hidden="true"></span>
+                <div class="node-header">
+                  <span class="node-dot dot-orange"></span>
+                  <span class="node-title">COMMUNITY PARTNERS</span>
+                </div>
+                <p class="node-desc">Youth, community and regional connections.</p>
+              </div>
+
+              <!-- Node 5: TECHNOLOGY PARTNERS -->
+              <div class="partner-node node-upper-left" onclick="window.openPartnerModal()">
+                <span class="node-connector-dot dot-coral" aria-hidden="true"></span>
+                <div class="node-header">
+                  <span class="node-dot dot-coral"></span>
+                  <span class="node-title">TECHNOLOGY PARTNERS</span>
+                </div>
+                <p class="node-desc">AI tools, platforms and technical capability.</p>
+              </div>
+
             </div>
+
           </div>
 
-          <!-- 6 Partner Categories Distributed around the Orbital Rings -->
-
-          <!-- 1. TECHNOLOGY PARTNERS (Top-Left: Coral Accent) -->
-          <div class="orbital-category-group cat-pos-top-left" onclick="window.openPlaceholderModal('Technology Partners', 'Compute, foundational models, AI tooling and developer infrastructure partners.')">
-            <div class="category-node-chip chip-coral">
-              <span class="chip-dot dot-coral"></span>
-              <span class="chip-label">TECHNOLOGY PARTNERS</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Compute & AI Infrastructure (Verified Partner slot)">
-                <span class="partner-capsule-name">Compute & Infra</span>
-              </div>
-              <div class="partner-logo-capsule" title="Foundational AI Tooling (Verified Partner slot)">
-                <span class="partner-capsule-name">Tooling Partners</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. UNIVERSITY PARTNERS (Top-Right: Teal / Green Accent) -->
-          <div class="orbital-category-group cat-pos-top-right" onclick="window.openPlaceholderModal('University Partners', 'Academic research labs, student innovation centres and exchange universities.')">
-            <div class="category-node-chip chip-teal">
-              <span class="chip-dot dot-teal"></span>
-              <span class="chip-label">UNIVERSITY PARTNERS</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Singapore Higher Education Alliances">
-                <span class="partner-capsule-name">Singapore Labs</span>
-              </div>
-              <div class="partner-logo-capsule" title="Sarawak Academic Institutions">
-                <span class="partner-capsule-name">Sarawak Universities</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. INDUSTRY PARTNERS (Middle-Right: Bright Blue Accent) -->
-          <div class="orbital-category-group cat-pos-mid-right" onclick="window.openChallengeModal()">
-            <div class="category-node-chip chip-blue">
-              <span class="chip-dot dot-blue"></span>
-              <span class="chip-label">INDUSTRY PARTNERS</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Enterprise Problem Brief Providers">
-                <span class="partner-capsule-name">Enterprise Briefs</span>
-              </div>
-              <div class="partner-logo-capsule" title="Innovation Cohort Sponsors">
-                <span class="partner-capsule-name">Challenge Sponsors</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. GOVERNMENT / INSTITUTION (Bottom-Right: Deep Navy Accent) -->
-          <div class="orbital-category-group cat-pos-bottom-right" onclick="window.openPartnerModal()">
-            <div class="category-node-chip chip-navy">
-              <span class="chip-dot dot-navy"></span>
-              <span class="chip-label">GOVERNMENT / INSTITUTION</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Bilateral Youth & Digital Economy Agencies">
-                <span class="partner-capsule-name">Public Initiatives</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. COMMUNITY PARTNERS (Bottom-Left: Warm Orange Accent) -->
-          <div class="orbital-category-group cat-pos-bottom-left" onclick="window.openPlaceholderModal('Community Partners', 'Youth networks, grassroot maker clubs and regional innovation hubs across Sarawak.')">
-            <div class="category-node-chip chip-orange">
-              <span class="chip-dot dot-orange"></span>
-              <span class="chip-label">COMMUNITY PARTNERS</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Youth & Grassroot Innovation Clubs">
-                <span class="partner-capsule-name">Youth Alliances</span>
-              </div>
-              <div class="partner-logo-capsule" title="Regional Tech Hubs">
-                <span class="partner-capsule-name">Regional Hubs</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. SPONSORS & MENTORS (Middle-Left: Soft Purple Accent) -->
-          <div class="orbital-category-group cat-pos-mid-left" onclick="window.openPartnerModal()">
-            <div class="category-node-chip chip-purple">
-              <span class="chip-dot dot-purple"></span>
-              <span class="chip-label">SPONSORS & SUPPORTERS</span>
-            </div>
-            <div class="partner-capsule-list">
-              <div class="partner-logo-capsule" title="Ecosystem Grant & Compute Supporters">
-                <span class="partner-capsule-name">Ecosystem Grants</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Subtle Mascot Companion near the outer orbital trajectory -->
-          <div class="orbital-mascot-companion" onclick="window.openPlaceholderModal('Usei Usei Cat', 'Guiding builders and connecting partners across our orbital ecosystem!')" title="Usei Usei Cat at Orbital Network">
-            <svg viewBox="0 0 80 80" fill="none">
-              <polygon points="15,35 8,10 32,24" fill="#18181b"/>
-              <polygon points="65,35 72,10 48,24" fill="#18181b"/>
-              <ellipse cx="40" cy="45" rx="30" ry="24" fill="#18181b"/>
-              <ellipse cx="28" cy="43" rx="7" ry="8" fill="#FFC857"/>
-              <ellipse cx="28" cy="43" rx="3" ry="7" fill="#000000"/>
-              <ellipse cx="52" cy="43" rx="7" ry="8" fill="#FFC857"/>
-              <ellipse cx="52" cy="43" rx="3" ry="7" fill="#000000"/>
-              <polygon points="38,55 42,55 40,58" fill="#F0443E"/>
-            </svg>
-          </div>
         </div>
       </div>
     </section>
@@ -677,18 +659,9 @@
     <section class="final-cta-section" id="final-cta">
       <div class="container">
         <div class="final-cta-card">
-          <!-- Optional Full Banner Background Image Overlay -->
-          <div class="cta-bg-image-overlay" id="ctaBgOverlay" aria-hidden="true"></div>
-
-          <!-- Left Text & Actions Content Block -->
           <div class="final-cta-content">
-            <h2 class="final-cta-title">
-              Ready to build the future with us?
-            </h2>
-            <p class="final-cta-subline">
-              Your future doesn’t have a border.
-            </p>
-
+            <h2 class="final-cta-title">Ready to build the future with us?</h2>
+            <p class="final-cta-subline">Your future doesn’t have a border.</p>
             <div class="final-cta-buttons">
               <a href="join.html" class="btn btn-coral"><span>JOIN SAIYAN</span><span>→</span></a>
               <button class="btn btn-cyan" onclick="window.openChallengeModal()">
@@ -699,45 +672,8 @@
               </button>
             </div>
           </div>
-
-          <!-- Right Customizable Image / Artwork Display Area -->
-          <div class="cta-visual-showcase" id="ctaVisualContainer">
-            <div class="cta-illustration-frame" id="ctaIllustrationFrame">
-              <svg class="cta-network-skyline-vector" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Singapore & Sarawak Bilateral Skyline Arcs -->
-                <path d="M 40 180 L 40 100 L 70 100 L 70 180" stroke="#316BFF" stroke-width="2.5" opacity="0.45"/>
-                <path d="M 90 180 L 90 70 L 125 70 L 125 180" stroke="#316BFF" stroke-width="2.5" opacity="0.6"/>
-                <path d="M 180 180 L 210 30 L 240 180" stroke="#316BFF" stroke-width="3" opacity="0.75"/>
-                <path d="M 330 180 L 365 90 L 400 180" stroke="#0E7C8A" stroke-width="2.5" opacity="0.55"/>
-
-                <!-- Glowing Cross-Border Connection Lines -->
-                <path d="M 60 100 C 130 20, 260 50, 370 90" stroke="#FF7548" stroke-width="2" stroke-dasharray="5 5" opacity="0.75"/>
-                <path d="M 110 70 C 200 130, 280 20, 365 90" stroke="#52C9D9" stroke-width="2" opacity="0.75"/>
-
-                <!-- Glowing Nodes -->
-                <circle cx="60" cy="100" r="5" fill="#316BFF"/>
-                <circle cx="210" cy="30" r="6" fill="#F0443E"/>
-                <circle cx="365" cy="90" r="5" fill="#42C7A5"/>
-                <circle cx="270" cy="80" r="4" fill="#FFC857"/>
-              </svg>
-
-              <!-- Usei Usei Cat Mascot -->
-              <div class="cta-mascot-duo" onclick="window.openPlaceholderModal('Usei Usei Cat', 'Ready to build what matters with you!')" title="Usei Usei Cat Companion">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <polygon points="20,40 10,12 40,28" fill="#18181b"/>
-                  <polygon points="80,40 90,12 60,28" fill="#18181b"/>
-                  <ellipse cx="50" cy="52" rx="38" ry="30" fill="#18181b"/>
-                  <ellipse cx="36" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="36" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <ellipse cx="64" cy="50" rx="10" ry="11" fill="#FFC857"/>
-                  <ellipse cx="64" cy="50" rx="4" ry="9" fill="#000000"/>
-                  <circle cx="38" cy="46" r="2.5" fill="#ffffff"/>
-                  <circle cx="66" cy="46" r="2.5" fill="#ffffff"/>
-                  <polygon points="48,63 52,63 50,66" fill="#F0443E"/>
-                  <path d="M44 70 Q 50 74 56 70" stroke="#ffffff" stroke-width="1.5" fill="none"/>
-                </svg>
-              </div>
-            </div>
+          <div class="final-cta-visual-wrap">
+            <img src="assets/img/modal_banner.png" alt="Singapore & Sarawak AI Network" class="final-cta-illustration" />
           </div>
         </div>
       </div>
@@ -795,10 +731,10 @@
         <div>
           <h4 class="footer-heading">EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
             <li><a href="youth.html">For Youth</a></li>
             <li><a href="organisations.html">For Organisations</a></li>
-            <li><a href="#partners">Partners</a></li>
+            <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div>
 
@@ -862,13 +798,18 @@
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
-      <h3 class="modal-title" id="modalTitle">Modal Title</h3>
-      <p class="modal-subtitle" id="modalSubtitle">Modal Subtitle</p>
-      <div id="modalBody"></div>
+      <div class="modal-banner-frame">
+        <img src="assets/img/modal_banner.png" alt="Singapore & Sarawak AI Network" class="modal-banner-img" />
+      </div>
+      <div class="modal-content-wrap">
+        <h3 class="modal-title" id="modalTitle">Modal Title</h3>
+        <p class="modal-subtitle" id="modalSubtitle">Modal Subtitle</p>
+        <div id="modalBody"></div>
+      </div>
     </div>
   </div>
 
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=20260904_02"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {

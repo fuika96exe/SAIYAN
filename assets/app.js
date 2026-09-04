@@ -295,13 +295,13 @@ function initModalSystem() {
 }
 
 /* ==========================================================================
-   UNIFIED JOURNEY COMPANION
-   - Exactly One Persistent Cat
-   - Starts directly on route at (720, 540)
-   - Travels ~1.5s along smooth S-curve to exact position below Mentorship (530, 1080)
-   - Stays visible at (530, 1080) permanently
-   - NO automatic scrolling on click (user manually explores)
-   - Single 5s initial greeting, cancels immediately on interaction
+   LEFT RAIL MASCOT COMPANION (DESKTOP ONLY)
+   - Only appears and moves on Desktop (window.innerWidth > 991px)
+   - Strictly constrained to the left-side journey rail (never roams across content or cards)
+   - Moves vertically between the 3 rail nodes (Coral -> Cyan -> Navy) as user scrolls the page
+   - User maintains 100% manual scroll control (NO automatic forced scrolling)
+   - Click interaction: playful bounce and speech bubble
+   - Full support for prefers-reduced-motion: reduce
    ========================================================================== */
 function initUnifiedJourneyCompanion() {
   const mascotContainer = document.getElementById('persistentMascot');
@@ -309,37 +309,40 @@ function initUnifiedJourneyCompanion() {
   const bubble = document.getElementById('mascotBubble');
   const bubbleText = document.getElementById('mascotBubbleText');
   const exploreBtn = document.getElementById('bubbleExploreBtn');
-  const path = document.getElementById('continuousJourneyPath');
-  const startNode = document.getElementById('journeyNode0');
-  const rightNode = document.getElementById('journeyNode3');
+  const journeyRail = document.getElementById('journeyRail');
 
-  if (!mascotContainer || !mascotBtn || !path) return;
+  if (!mascotContainer || !mascotBtn || !journeyRail) return;
 
-  // Interaction State Machine: 'idle' | 'greetingShown' | 'travelling' | 'arrived'
-  let journeyState = 'idle';
-  let greetingShownOrCancelled = false;
-  let initialGreetingTimer = null;
+  const railNodes = [
+    document.getElementById('railNode0'),
+    document.getElementById('railNode1'),
+    document.getElementById('railNode2')
+  ].filter(Boolean);
+
+  const railMessages = [
+    "Hi, I’m Usei.<br />Follow the journey with me.",
+    "Connecting builders<br />across Singapore & Sarawak.",
+    "Build what matters.<br />Your future has no border."
+  ];
+
+  let currentRailIndex = 0;
+  let hasUserInteracted = false;
+  let greetingTimer = null;
   let autoDismissTimer = null;
 
-  // Find exact path distance from start (720, 540) to target point below Mentorship (530, 1080)
-  const targetLength = path.getTotalLength();
-
-  // 1. Initial 5-second Greeting (Appears exactly once per page load)
-  initialGreetingTimer = setTimeout(() => {
-    if (!greetingShownOrCancelled && journeyState === 'idle') {
-      greetingShownOrCancelled = true;
-      journeyState = 'greetingShown';
-      showBubble("Hi, I’m Usei.<br />Follow me through SAIYAN.", true);
+  // 1. Initial Greeting (5 seconds after page load on desktop)
+  greetingTimer = setTimeout(() => {
+    if (!hasUserInteracted && currentRailIndex === 0 && window.innerWidth > 991) {
+      showBubble(railMessages[0], true);
       autoDismissTimer = setTimeout(() => {
         closeBubble();
-        if (journeyState === 'greetingShown') journeyState = 'idle';
       }, 5000);
     }
   }, 5000);
 
   function cancelInitialGreeting() {
-    greetingShownOrCancelled = true;
-    if (initialGreetingTimer) clearTimeout(initialGreetingTimer);
+    hasUserInteracted = true;
+    if (greetingTimer) clearTimeout(greetingTimer);
     if (autoDismissTimer) clearTimeout(autoDismissTimer);
   }
 
@@ -353,134 +356,83 @@ function initUnifiedJourneyCompanion() {
     bubble.classList.remove('is-open');
   }
 
-  // Click on Mascot
+  // 2. Click Interaction on Mascot
   mascotBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     cancelInitialGreeting();
 
-    if (journeyState === 'travelling') return;
+    mascotBtn.classList.remove('is-bouncing');
+    void mascotBtn.offsetWidth;
+    mascotBtn.classList.add('is-bouncing');
 
-    if (journeyState === 'idle' || journeyState === 'greetingShown') {
-      // First click in Hero: Bounce and trigger journey
-      mascotBtn.classList.remove('is-bouncing');
-      void mascotBtn.offsetWidth;
-      mascotBtn.classList.add('is-bouncing');
-      startContinuousTravel();
-    } else if (journeyState === 'arrived') {
-      // Post-arrival click: Keep in destination below Mentorship card, show friendly message
-      showBubble("Here’s where ideas<br />become impact.", false);
-      setTimeout(closeBubble, 4500);
-    }
+    showBubble(railMessages[currentRailIndex] || railMessages[0], false);
+    setTimeout(closeBubble, 4500);
   });
 
-  // Action inside bubble: "Explore with me →"
   if (exploreBtn) {
     exploreBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       cancelInitialGreeting();
-      if (journeyState === 'idle' || journeyState === 'greetingShown') {
-        startContinuousTravel();
-      }
+      closeBubble();
     });
   }
 
-  // Continuous Smooth Travel along Single Shared Path (~1.5s duration, NO autoscroll)
-  function startContinuousTravel() {
-    journeyState = 'travelling';
-    closeBubble();
+  // 3. Position Mascot vertically along the Left Rail
+  function updateRailPositionByProgress(progress) {
+    if (window.innerWidth <= 991) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const node0 = railNodes[0];
+    const node2 = railNodes[2];
 
-    // 1. Activate Route with Glow
-    path.classList.add('route-active');
+    if (node0 && node2) {
+      const railRect = journeyRail.getBoundingClientRect();
+      const topNodeOffset = (node0.getBoundingClientRect().top - railRect.top) + (node0.offsetHeight / 2);
+      const bottomNodeOffset = (node2.getBoundingClientRect().top - railRect.top) + (node2.offsetHeight / 2);
 
-    if (prefersReducedMotion) {
-      journeyState = 'arrived';
-      positionMascot(280, 2480);
-      if (rightNode) rightNode.classList.add('node-glowing');
-      showBubble("Here’s where ideas<br />become impact.", false);
-      setTimeout(closeBubble, 4500);
-      return;
+      // Smooth vertical position directly mapped to scroll progress
+      const targetTop = topNodeOffset + (bottomNodeOffset - topNodeOffset) * progress;
+      mascotContainer.style.top = Math.round(targetTop) + 'px';
+
+      // Active node highlight
+      const activeIdx = progress > 0.65 ? 2 : (progress > 0.3 ? 1 : 0);
+      currentRailIndex = activeIdx;
+      railNodes.forEach((node, idx) => {
+        node.style.transform = idx === activeIdx ? 'scale(1.35)' : 'scale(1)';
+      });
     }
-
-    // Walking animation state
-    mascotBtn.classList.add('is-walking');
-
-    // 2. Smooth travel over 1500ms (1.5 seconds) - NO automatic page scrolling
-    const travelDuration = 1500;
-    const startTime = performance.now();
-
-    function animateStep(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / travelDuration, 1);
-
-      // Smooth cubic ease-in-out curve
-      const easeProgress = progress < 0.5 
-        ? 4 * progress * progress * progress 
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-      const currentDistance = easeProgress * targetLength;
-      const point = path.getPointAtLength(currentDistance);
-
-      // Position Mascot directly on path coordinates
-      positionMascot(point.x, point.y);
-
-      if (easeProgress > 0.05 && startNode) startNode.classList.add('node-glowing');
-
-      if (progress < 1) {
-        requestAnimationFrame(animateStep);
-      } else {
-        // Arrival Completion at EXACT location below Mentorship card (530, 1080)
-        journeyState = 'arrived';
-        mascotBtn.classList.remove('is-walking');
-        positionMascot(280, 2480);
-        if (rightNode) rightNode.classList.add('node-glowing');
-
-        // Arrived message displayed beside Mentorship
-        showBubble("Here’s where ideas<br />become impact.", false);
-        setTimeout(closeBubble, 5000);
-      }
-    }
-
-    requestAnimationFrame(animateStep);
   }
 
-  function positionMascot(svgX, svgY) {
-    const canvas = document.getElementById('sharedSvgCanvas');
-    if (!canvas) return;
+  // 4. Continuous Scroll-linked Progression (Moves fluidly vertically down the left rail as user scrolls)
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 991) return;
+    const scrollY = window.scrollY;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = totalHeight > 0 ? Math.min(Math.max(scrollY / totalHeight, 0), 1) : 0;
 
-    const canvasRect = canvas.getBoundingClientRect();
-    const scaleX = canvasRect.width / 1440;
-    const scaleY = canvasRect.height / 2700;
+    updateRailPositionByProgress(scrollProgress);
+  }, { passive: true });
 
-    const actualX = svgX * scaleX;
-    const actualY = svgY * scaleY;
-
-    mascotContainer.style.left = actualX + 'px';
-    mascotContainer.style.top = actualY + 'px';
-  }
-
-  // Keep position properly calibrated on window resize
+  // Recalibrate on resize
   window.addEventListener('resize', () => {
-    if (!path) return;
-    if (journeyState === 'arrived') {
-      positionMascot(280, 2480);
-    } else {
-      positionMascot(720, 540);
+    if (window.innerWidth > 991) {
+      const scrollY = window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = totalHeight > 0 ? Math.min(Math.max(scrollY / totalHeight, 0), 1) : 0;
+      updateRailPositionByProgress(scrollProgress);
     }
   });
 
-  // Initial alignment precisely on start node (720, 540)
-  positionMascot(720, 540);
+  // Initial Placement on Top Coral Node
+  setTimeout(() => updateRailPositionByProgress(0), 100);
 
-  // Close on outside click
+  // Close speech bubble on outside click
   document.addEventListener('click', (e) => {
     if (!bubble.contains(e.target) && !mascotBtn.contains(e.target)) {
       closeBubble();
     }
   });
 
-  // Close on Escape
+  // Close speech bubble on Escape
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeBubble();

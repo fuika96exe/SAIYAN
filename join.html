@@ -43,12 +43,12 @@
 
       <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="youth.html" class="nav-link">FOR YOUTH</a>
-        <a href="organisations.html" class="nav-link">FOR ORGANISATIONS</a>
-        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-        <a href="sailor-saiyan.html" class="nav-link">SAILOR SAIYAN</a>
+        <a href="youth.html" class="nav-link ">FOR YOUTH</a>
+        <a href="organisations.html" class="nav-link ">FOR ORGANISATIONS</a>
+        <a href="programmes.html" class="nav-link ">PROGRAMMES</a>
+        <a href="sailor-saiyan.html" class="nav-link ">SAILOR SAIYAN</a>
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
+        <a href="about.html" class="nav-link ">ABOUT</a>
       </nav>
 
       <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
@@ -75,12 +75,12 @@
       <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
-      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
-      <li><a href="organisations.html" class="mobile-nav-item">FOR ORGANISATIONS</a></li>
-      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
-      <li><a href="sailor-saiyan.html" class="mobile-nav-item">SAILOR SAIYAN</a></li>
+      <li><a href="youth.html" class="mobile-nav-item ">FOR YOUTH</a></li>
+      <li><a href="organisations.html" class="mobile-nav-item ">FOR ORGANISATIONS</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item ">PROGRAMMES</a></li>
+      <li><a href="sailor-saiyan.html" class="mobile-nav-item ">SAILOR SAIYAN</a></li>
       <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+      <li><a href="about.html" class="mobile-nav-item ">ABOUT</a></li>
     </ul>
     <div class="mobile-nav-footer-cta">
       <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
@@ -412,10 +412,10 @@
         <div>
           <h4 class="footer-heading">EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
             <li><a href="youth.html">For Youth</a></li>
             <li><a href="organisations.html">For Organisations</a></li>
             <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div>
 
@@ -476,12 +476,17 @@
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
-      <h3 class="modal-title" id="modalTitle">Privacy Policy</h3>
-      <p class="modal-subtitle" id="modalSubtitle">Data protection & user consent</p>
-      <div id="modalBody">
-        <p style="color:var(--text-secondary-navy); line-height:1.6; font-size:0.95rem;">
-          SAIYAN is committed to protecting your personal data in accordance with Singapore and Malaysian data protection principles. Information collected in this application will strictly be used to review qualification, match you with relevant youth cohorts, and communicate program details. We do not sell or share personal information with unauthorized third parties.
-        </p>
+      <div class="modal-banner-frame">
+        <img src="assets/img/modal_banner.png" alt="Singapore & Sarawak AI Network" class="modal-banner-img" />
+      </div>
+      <div class="modal-content-wrap">
+        <h3 class="modal-title" id="modalTitle">Privacy Policy</h3>
+        <p class="modal-subtitle" id="modalSubtitle">Data protection & user consent</p>
+        <div id="modalBody">
+          <p style="color:var(--text-secondary-navy); line-height:1.6; font-size:0.95rem;">
+            SAIYAN is committed to protecting your personal data in accordance with Singapore and Malaysian data protection principles. Information collected in this application will strictly be used to review qualification, match you with relevant youth cohorts, and communicate program details. We do not sell or share personal information with unauthorized third parties.
+          </p>
+        </div>
       </div>
     </div>
   </div>
