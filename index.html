@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAIYAN | Singapore–Sarawak AI Youth Ambassador Network</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <meta name="description" content="SAIYAN connects young people in Singapore and Sarawak through practical AI skills, digital transformation, real-world projects and cross-border opportunities." />
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. FLAT EDITORIAL HEADER
+       ========================================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <!-- Brand & Mascot Logo -->
+      <a href="#" class="brand-wrapper" aria-label="SAIYAN Homepage">
+        <svg class="brand-mascot-head" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="8,18 4,6 17,13" fill="#18181b"/>
+          <polygon points="32,18 36,6 23,13" fill="#18181b"/>
+          <ellipse cx="20" cy="22" rx="16" ry="13" fill="#18181b"/>
+          <ellipse cx="14" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+          <ellipse cx="14" cy="21" rx="1.8" ry="4" fill="#000000"/>
+          <ellipse cx="26" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+          <ellipse cx="26" cy="21" rx="1.8" ry="4" fill="#000000"/>
+          <circle cx="15" cy="19" r="1.2" fill="#ffffff"/>
+          <circle cx="27" cy="19" r="1.2" fill="#ffffff"/>
+          <polygon points="19,25 21,25 20,27" fill="#F0443E"/>
+        </svg>
+        <span class="brand-title">SAIYAN</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <!-- Desktop Navigation Links in exact order -->
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="youth.html" class="nav-link">FOR YOUTH</a>
+        <a href="organisations.html" class="nav-link">FOR ORGANISATIONS</a>
+        <a href="programmes.html" class="nav-link">PROGRAMMES</a>
+        <a href="sailor-saiyan.html" class="nav-link">SAILOR SAIYAN</a>
+        <a href="index.html#partners" class="nav-link">PARTNERS</a>
+      </nav>
+
+      <!-- Right CTA Button -->
+      <div class="header-action">
+        <a href="join.html" class="btn btn-coral"><span>JOIN SAIYAN</span><span>→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         2. UNIFIED JOURNEY SECTION (HERO + SECTION 2 WITH CONVEX CURVED BOUNDARY & SMOOTH ROUTE)
+         ======================================================================= -->
+    <div class="unified-journey-wrapper" id="journeyWrapper">
+      
+      <!-- Convex (凸) Crisp Clean Designed Curved Divider between Hero and Section 2 -->
+      <div class="hero-bottom-curve-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M 0 90 Q 720 0 1440 90 L 1440 90 L 0 90 Z" fill="#FFFDF8" />
+        </svg>
+      </div>
+
+      <!-- Shared SVG Canvas for the Single Continuous Route (Hero -> Sec 2) -->
+      <svg class="shared-journey-svg-canvas" id="sharedSvgCanvas" viewBox="0 0 1440 1200" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Smooth, organic S-Curve Dotted Route from (720, 540) to exact destination node at (1360, 1140) -->
+        <path id="continuousJourneyPath" class="shared-journey-path" d="M 720 540 C 690 620, 480 660, 440 760 C 405 845, 455 980, 530 1080 C 620 1140, 960 1120, 1360 1140" />
+        
+        <!-- Only Start Node (Hero) and Rightmost Destination Node (Green) -->
+        <circle id="journeyNode0" class="journey-node-dot" cx="720" cy="540" fill="#F0443E" />
+        <circle id="journeyNode3" class="journey-node-dot" cx="1360" cy="1140" fill="#42C7A5" />
+      </svg>
+
+      <!-- Persistent Usei Usei Cat Container -->
+      <div class="persistent-mascot-container" id="persistentMascot">
+        <!-- Mascot Speech Bubble -->
+        <div class="mascot-speech-bubble" id="mascotBubble" role="dialog" aria-label="Usei Usei Cat message">
+          <p class="speech-bubble-text" id="mascotBubbleText">Hi, I’m Usei.<br />Follow me through SAIYAN.</p>
+          <button class="speech-bubble-action" id="bubbleExploreBtn">Explore with me →</button>
+        </div>
+
+        <!-- Mascot Button Trigger with Pulsing Cue -->
+        <button 
+          type="button"
+          class="hero-mascot-btn" 
+          id="heroMascotBtn" 
+          aria-label="Meet Usei Usei, your SAIYAN guide"
+          title="Click to interact with Usei Usei Cat"
+        >
+          <img src="assets/img/usei_usei_cat_transparent.png" alt="Usei Usei Cat Companion" style="width:100%; height:auto;" />
+        </button>
+      </div>
+
+      <!-- =====================================================================
+           2A. HERO SECTION
+           ===================================================================== -->
+      <section class="hero-section" id="hero">
+        <div class="hero-curve-bg" aria-hidden="true"></div>
+
+        <!-- Left Vertical Dotted Journey Route -->
+        <div class="hero-journey-rail" id="journeyRail" aria-hidden="true">
+          <span class="hero-journey-label">FOLLOW THE JOURNEY</span>
+          <div class="journey-node node-coral"></div>
+          <div class="journey-line-segment"></div>
+          <div class="journey-node node-cyan"></div>
+          <div class="journey-line-segment"></div>
+          <div class="journey-node node-navy"></div>
+        </div>
+
+        <!-- Left Content Container -->
+        <div class="container hero-layout-wrapper">
+          <div class="hero-text-block">
+            <div class="section-eyebrow">
+              <span>SINGAPORE <span style="color:var(--accent-orange)">×</span> SARAWAK</span>
+            </div>
+
+            <h1 class="hero-headline">
+              Build what<br />matters.
+            </h1>
+
+            <p class="hero-supporting">
+              We curate and nurture the future of AI builders.
+            </p>
+
+            <p class="hero-subline">
+              Don’t just learn AI. Build something real.
+            </p>
+
+            <div class="hero-button-group">
+              <a href="join.html" class="btn btn-coral"><span>JOIN SAIYAN</span><span>→</span></a>
+              <a href="organisations.html#challenge" class="btn btn-cyan"><span>BRING US A CHALLENGE</span></a>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <!-- Full-Bleed 100vw Panoramic Visual Layer -->
+        <div class="hero-visual-bleed" aria-label="Singapore-Sarawak AI Youth Collaboration">
+          <!-- Landmark Identifiers -->
+          <div class="hero-landmark-tag-sg">SINGAPORE</div>
+          <div class="hero-landmark-tag-swk">SARAWAK</div>
+
+          <!-- Floating AI Telemetry Overlay Panels -->
+          <div class="hero-ui-overlay-left">
+            <div class="hero-ui-header">AI TELEMETRY</div>
+            <div class="hero-ui-bar"><div class="hero-ui-bar-fill" style="width:78%; background:var(--accent-bright-blue);"></div></div>
+            <div class="hero-ui-bar"><div class="hero-ui-bar-fill" style="width:92%; background:var(--accent-cyan-bright);"></div></div>
+          </div>
+
+          <div class="hero-ui-overlay-right">
+            <div class="hero-ui-header">BILATERAL NODES</div>
+            <div class="hero-ui-bar"><div class="hero-ui-bar-fill" style="width:85%; background:var(--accent-coral);"></div></div>
+            <div class="hero-ui-bar"><div class="hero-ui-bar-fill" style="width:64%; background:var(--accent-orange);"></div></div>
+          </div>
+
+          <!-- Seamless Left-Masked Environment Layer -->
+          <div class="hero-visual-blend-scene">
+            <img 
+              src="assets/img/hero_scene_ultra_wide_21x9.png" 
+              alt="Diverse youth AI builders collaborating around laptop with Singapore Marina Bay and Sarawak DUN landmarks connected by AI network lines" 
+              class="hero-visual-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           2B. SECTION 2: MORE THAN LEARNING AI
+           ===================================================================== -->
+      <section class="more-than-section" id="philosophy">
+        <div class="more-than-bg-pattern" aria-hidden="true"></div>
+
+        <div class="container" style="position:relative;">
+          <div class="section-header">
+            <h2 class="section-title">More than learning AI.</h2>
+            <p class="section-subtitle">
+              From learning to making an impact — SAIYAN connects builders,<br />
+              organisations and mentors to turn skills into real outcomes.
+            </p>
+          </div>
+
+          <!-- 4 Horizontally Arranged Content Cards on Desktop -->
+          <div class="feature-cards-grid">
+            <!-- Card 1: REAL-WORLD PROJECTS -->
+            <div class="feature-card card-red" id="cardRealWorld" onclick="window.openPlaceholderModal('Real-World Projects', 'Work on meaningful challenges with verified industry stakeholders, datasets and real users.')">
+              <div class="feature-card-image-area">
+                <img src="assets/img/card_real_world_projects.jpg" alt="Real-World Projects - Community and Industry AI Challenges" class="feature-card-img" />
+                <div class="card-badge-circle" title="Real-World Projects">🚀</div>
+              </div>
+              <div class="feature-card-text-area">
+                <h3 class="feature-card-title">REAL-WORLD PROJECTS</h3>
+                <p class="feature-card-desc">Work on meaningful challenges with real users and real impact.</p>
+              </div>
+            </div>
+
+            <!-- Card 2: MENTORSHIP -->
+            <div class="feature-card card-orange" id="cardMentorship" onclick="window.openPlaceholderModal('Mentorship', 'Learn directly from veteran AI practitioners and engineering leaders across the bilateral network.')">
+              <div class="feature-card-image-area">
+                <img src="assets/img/card_mentorship.jpg" alt="Mentorship - Experienced Practitioners Guiding AI Youth" class="feature-card-img" />
+                <div class="card-badge-circle" title="Mentorship">👥</div>
+              </div>
+              <div class="feature-card-text-area">
+                <h3 class="feature-card-title">MENTORSHIP</h3>
+                <p class="feature-card-desc">Learn from practitioners who guide, challenge and support you.</p>
+              </div>
+            </div>
+
+            <!-- Card 3: BUILD & SHIP -->
+            <div class="feature-card card-cyan" id="cardBuildShip" onclick="window.openPlaceholderModal('Build & Ship', 'Turn ideas into working solutions. Deploy prototypes, test with users, launch, iterate and grow.')">
+              <div class="feature-card-image-area">
+                <img src="assets/img/card_build_and_ship.jpg" alt="Build & Ship - Prototype, Code and Launch AI Solutions" class="feature-card-img" />
+                <div class="card-badge-circle" title="Build & Ship">⚡</div>
+              </div>
+              <div class="feature-card-text-area">
+                <h3 class="feature-card-title">BUILD & SHIP</h3>
+                <p class="feature-card-desc">Turn ideas into working solutions. Launch, iterate and grow.</p>
+              </div>
+            </div>
+
+            <!-- Card 4: CROSS-BORDER COMMUNITY -->
+            <div class="feature-card card-mint" id="cardCommunity" onclick="window.openPlaceholderModal('Cross-Border Community', 'Connect with a vibrant peer community of young innovators across Singapore and Sarawak.')">
+              <div class="feature-card-image-area">
+                <img src="assets/img/card_cross_border_community.jpg" alt="Cross-Border Community - Singapore and Sarawak Youth Collaborating" class="feature-card-img" />
+                <div class="card-badge-circle" title="Cross-Border Community">🌏</div>
+              </div>
+              <div class="feature-card-text-area">
+                <h3 class="feature-card-title">CROSS-BORDER COMMUNITY</h3>
+                <p class="feature-card-desc">Connect with a community across Singapore and Sarawak.</p>
+              </div>
+            </div>
+          </div>
+
+          
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- =======================================================================
+         3. SECTION: WHERE DO YOU BELONG? (Sky & Clouds Atmosphere Background)
+         ======================================================================= -->
+    <section class="belong-section" id="belong">
+      <div class="belong-ambient-glow" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:20;">
+        <div class="section-header">
+          <h2 class="section-title">Where do you belong?</h2>
+          <p class="section-subtitle">We have a place for you.</p>
+        </div>
+
+        <!-- 5 Cards Structured in Centred 3 + 2 Layout -->
+        <div class="belong-showcase-container">
+          <!-- Top Row: 3 Cards -->
+          <div class="belong-row belong-row-top">
+            <!-- 1. I AM YOUTH -->
+            <div class="belong-card card-belong-youth" id="belongYouth" onclick="window.openPlaceholderModal('For Youth', 'Join a vibrant bilateral community of young AI innovators and builders across Singapore and Sarawak.')">
+              <div class="belong-icon-circle icon-bg-blue">👥</div>
+              <h3 class="belong-card-title">I AM YOUTH</h3>
+              <p class="belong-card-desc">Join a community of young builders.</p>
+            </div>
+
+            <!-- 2. I AM A BUSINESS -->
+            <div class="belong-card card-belong-business" id="belongBusiness" onclick="window.openChallengeModal()">
+              <div class="belong-icon-circle icon-bg-purple">💼</div>
+              <h3 class="belong-card-title">I AM A BUSINESS</h3>
+              <p class="belong-card-desc">Bring us your real business challenge.</p>
+            </div>
+
+            <!-- 3. I AM A UNIVERSITY -->
+            <div class="belong-card card-belong-university" id="belongUniversity" onclick="window.openPartnerModal()">
+              <div class="belong-icon-circle icon-bg-cyan">🎓</div>
+              <h3 class="belong-card-title">I AM A UNIVERSITY</h3>
+              <p class="belong-card-desc">Partner for student experiences and research.</p>
+            </div>
+          </div>
+
+          <!-- Bottom Row: 2 Centred Cards -->
+          <div class="belong-row belong-row-bottom">
+            <!-- 4. I AM AN AI EXPERT -->
+            <div class="belong-card card-belong-expert" id="belongExpert" onclick="window.openPlaceholderModal('AI Expert & Mentors', 'Mentor, train and share your industry expertise with next-generation builders.')">
+              <div class="belong-icon-circle icon-bg-orange">💡</div>
+              <h3 class="belong-card-title">I AM AN AI EXPERT</h3>
+              <p class="belong-card-desc">Mentor, train and share your expertise.</p>
+            </div>
+
+            <!-- 5. I AM GOVERNMENT / INSTITUTION -->
+            <div class="belong-card card-belong-gov" id="belongGov" onclick="window.openPartnerModal()">
+              <div class="belong-icon-circle icon-bg-navy">🏛️</div>
+              <h3 class="belong-card-title">I AM GOVERNMENT / INSTITUTION</h3>
+              <p class="belong-card-desc">Let’s build impactful programmes together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. SECTION: OUR PROGRAMMES (5-Card Substantial Row & Title Underline)
+         ======================================================================= -->
+    <section class="programmes-section" id="programmes">
+      <div class="programmes-ambient-bg" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:20;">
+        <div class="programmes-header">
+          <h2 class="programmes-title">Our programmes</h2>
+          <div class="programmes-title-underline" aria-hidden="true"></div>
+        </div>
+
+        <div class="programmes-cards-row">
+          <!-- 1. SAIYAN Academy -->
+          <div class="programme-card-item card-prog-academy" onclick="window.openPlaceholderModal('SAIYAN Academy', 'Practical AI learning and capability development masterclasses.')">
+            <div class="programme-visual-box bg-prog-cyan">
+              <div class="programme-visual-icon">
+                <svg viewBox="0 0 80 80" width="56" height="56" fill="none">
+                  <rect x="12" y="18" width="56" height="44" rx="8" fill="#FFFFFF" fill-opacity="0.95"/>
+                  <path d="M26 36 L34 44 L54 26" stroke="#0E7C8A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="58" cy="22" r="5" fill="#52C9D9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="programme-text-area">
+              <h3 class="programme-name">SAIYAN Academy</h3>
+              <p class="programme-desc">Practical AI learning and capability development.</p>
+            </div>
+          </div>
+
+          <!-- 2. SAIYAN Missions -->
+          <div class="programme-card-item card-prog-missions" onclick="window.openPlaceholderModal('SAIYAN Missions', 'Hackathons, innovation challenges and real-world problem solving.')">
+            <div class="programme-visual-box bg-prog-coral">
+              <div class="programme-visual-icon">
+                <svg viewBox="0 0 80 80" width="56" height="56" fill="none">
+                  <circle cx="40" cy="40" r="28" fill="#FFFFFF" fill-opacity="0.95"/>
+                  <polygon points="40,22 46,34 59,36 50,45 52,58 40,52 28,58 30,45 21,36 34,34" fill="#F0443E"/>
+                </svg>
+              </div>
+            </div>
+            <div class="programme-text-area">
+              <h3 class="programme-name">SAIYAN Missions</h3>
+              <p class="programme-desc">Hackathons, innovation challenges and real-world problem solving.</p>
+            </div>
+          </div>
+
+          <!-- 3. SAIYAN Build -->
+          <div class="programme-card-item card-prog-build" onclick="window.openPlaceholderModal('SAIYAN Build', 'Digital and AI implementation projects for real organisations.')">
+            <div class="programme-visual-box bg-prog-mint">
+              <div class="programme-visual-icon">
+                <svg viewBox="0 0 80 80" width="56" height="56" fill="none">
+                  <rect x="14" y="20" width="52" height="40" rx="8" fill="#FFFFFF" fill-opacity="0.95"/>
+                  <polyline points="28,46 36,38 28,30" stroke="#42C7A5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="42" y1="46" x2="52" y2="46" stroke="#42C7A5" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="programme-text-area">
+              <h3 class="programme-name">SAIYAN Build</h3>
+              <p class="programme-desc">Digital and AI implementation projects for real organisations.</p>
+            </div>
+          </div>
+
+          <!-- 4. Sailor SAIYAN -->
+          <div class="programme-card-item card-prog-sailor" onclick="window.openPlaceholderModal('Sailor SAIYAN', 'Singapore–Sarawak mobility, exchanges and cross-border collaboration.')">
+            <div class="programme-visual-box bg-prog-sky">
+              <div class="programme-visual-icon">
+                <svg viewBox="0 0 80 80" width="56" height="56" fill="none">
+                  <circle cx="40" cy="40" r="28" fill="#FFFFFF" fill-opacity="0.95"/>
+                  <polygon points="40,24 40,48 54,48" fill="#316BFF"/>
+                  <polygon points="37,32 37,48 24,48" fill="#52C9D9"/>
+                  <path d="M22 52 Q 40 60 58 52 Z" fill="#071522"/>
+                </svg>
+              </div>
+            </div>
+            <div class="programme-text-area">
+              <h3 class="programme-name">Sailor SAIYAN</h3>
+              <p class="programme-desc">Singapore–Sarawak mobility, exchanges and cross-border collaboration.</p>
+            </div>
+          </div>
+
+          <!-- 5. SAIYAN Opportunities -->
+          <div class="programme-card-item card-prog-opps" onclick="window.openPlaceholderModal('SAIYAN Opportunities', 'Mentorship, projects, industry exposure and future pathways.')">
+            <div class="programme-visual-box bg-prog-lavender">
+              <div class="programme-visual-icon">
+                <svg viewBox="0 0 80 80" width="56" height="56" fill="none">
+                  <rect x="18" y="24" width="44" height="34" rx="7" fill="#FFFFFF" fill-opacity="0.95"/>
+                  <path d="M28 24 L28 18 Q 40 12 52 18 L52 24" stroke="#8C78ED" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                  <circle cx="40" cy="41" r="5" fill="#8C78ED"/>
+                </svg>
+              </div>
+            </div>
+            <div class="programme-text-area">
+              <h3 class="programme-name">SAIYAN Opportunities</h3>
+              <p class="programme-desc">Mentorship, projects, industry exposure and future pathways.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. SECTION: STORIES FROM THE NETWORK (Articles & Case Studies)
+         ======================================================================= -->
+    <section class="stories-section" id="stories">
+      <div class="container" style="position:relative; z-index:10;">
+        <div class="section-header">
+          <h2 class="section-title">Stories from the network</h2>
+          <p class="section-subtitle">Real breakthroughs, community deployments and learning journeys across borders.</p>
+        </div>
+
+        <div class="stories-grid">
+          <!-- Story 1 -->
+          <article class="story-card" onclick="window.openPlaceholderModal('Building for real communities', 'How cross-border youth teams are using AI to solve everyday challenges in education, healthcare and ecology.')">
+            <div class="story-thumb">
+              <svg viewBox="0 0 360 180" width="100%" height="100%">
+                <rect width="360" height="180" fill="#0D2137"/>
+                <circle cx="100" cy="90" r="40" fill="#42C7A5" opacity="0.45"/>
+                <circle cx="260" cy="90" r="40" fill="#316BFF" opacity="0.45"/>
+                <line x1="100" y1="90" x2="260" y2="90" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 4"/>
+                <circle cx="180" cy="90" r="10" fill="#FFC857"/>
+              </svg>
+            </div>
+            <div class="story-body">
+              <h3 class="story-title">Building for real communities</h3>
+              <p class="story-desc">Youth teams are using AI to solve everyday challenges in education, environment and community welfare.</p>
+              <div class="story-link-text">Read the story <span>→</span></div>
+            </div>
+          </article>
+
+          <!-- Story 2 -->
+          <article class="story-card" onclick="window.openPlaceholderModal('From learning to shipping', 'From classrooms to real world — ideas built, tested and launched by cross-border teams with industry mentors.')">
+            <div class="story-thumb">
+              <svg viewBox="0 0 360 180" width="100%" height="100%">
+                <rect width="360" height="180" fill="#151C28"/>
+                <rect x="50" y="35" width="260" height="110" rx="8" fill="#1E293B"/>
+                <polyline points="70,115 130,70 190,95 280,50" stroke="#F0443E" stroke-width="3.5" fill="none"/>
+                <circle cx="280" cy="50" r="6" fill="#42C7A5"/>
+              </svg>
+            </div>
+            <div class="story-body">
+              <h3 class="story-title">From learning to shipping</h3>
+              <p class="story-desc">From hackathon prompts to deployed prototypes — real projects launched with verified mentor guidance.</p>
+              <div class="story-link-text">Read the story <span>→</span></div>
+            </div>
+          </article>
+
+          <!-- Story 3 -->
+          <article class="story-card" onclick="window.openPlaceholderModal('Across borders, together', 'Singapore–Sarawak student exchanges and fellowships turning bilateral connection into lasting innovation impact.')">
+            <div class="story-thumb">
+              <svg viewBox="0 0 360 180" width="100%" height="100%">
+                <rect width="360" height="180" fill="#0E1A29"/>
+                <circle cx="180" cy="90" r="52" fill="#FFC857" opacity="0.35"/>
+                <path d="M110 120 Q 180 50 250 120" stroke="#52C9D9" stroke-width="4" fill="none"/>
+                <circle cx="110" cy="120" r="6" fill="#316BFF"/>
+                <circle cx="250" cy="120" r="6" fill="#F0443E"/>
+              </svg>
+            </div>
+            <div class="story-body">
+              <h3 class="story-title">Across borders, together</h3>
+              <p class="story-desc">Bilateral mobility, cultural exchanges and co-creation tracks that turn friendship into lasting impact.</p>
+              <div class="story-link-text">Read the story <span>→</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. SECTION: PARTNER NETWORK (Concentric Orbital Network System)
+         ======================================================================= -->
+    <section class="partner-network-section" id="partners">
+      <!-- Premium Warm Ivory & Pale Blue Ambient Lighting -->
+      <div class="partner-network-ambient" aria-hidden="true"></div>
+
+      <div class="container" style="position:relative; z-index:10;">
+        <div class="partner-network-header">
+          <h2 class="partner-network-title">Built across borders.</h2>
+          <p class="partner-network-subtitle">
+            A connected network of organisations, universities, communities and institutions building meaningful AI opportunities together.
+          </p>
+        </div>
+
+        <!-- Central Orbital Network Canvas & Visual System -->
+        <div class="orbital-network-wrapper">
+          <!-- Responsive Concentric SVG Orbit Rings -->
+          <svg class="orbital-rings-svg" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Concentric Orbital Ellipses with Subtle Gradient Stems -->
+            <ellipse cx="480" cy="320" rx="190" ry="110" stroke="rgba(49, 107, 255, 0.22)" stroke-width="1.5" stroke-dasharray="4 6"/>
+            <ellipse cx="480" cy="320" rx="310" ry="180" stroke="rgba(14, 124, 138, 0.22)" stroke-width="1.5"/>
+            <ellipse cx="480" cy="320" rx="420" ry="250" stroke="rgba(140, 120, 237, 0.2)" stroke-width="1.5" stroke-dasharray="6 8"/>
+
+            <!-- Subtle Inter-Orbit Trajectory Lines -->
+            <path d="M 180 200 Q 320 120 480 320" stroke="rgba(240, 68, 62, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <path d="M 780 180 Q 640 140 480 320" stroke="rgba(66, 199, 165, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <path d="M 210 460 Q 340 500 480 320" stroke="rgba(255, 117, 72, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <path d="M 750 460 Q 620 490 480 320" stroke="rgba(140, 120, 237, 0.25)" stroke-width="1.2" stroke-dasharray="3 5"/>
+
+            <!-- Orbit Constellation Dots -->
+            <circle cx="340" cy="245" r="3.5" fill="#316BFF" opacity="0.7"/>
+            <circle cx="620" cy="245" r="3.5" fill="#0E7C8A" opacity="0.7"/>
+            <circle cx="320" cy="400" r="3" fill="#FF7548" opacity="0.7"/>
+            <circle cx="640" cy="395" r="3" fill="#8C78ED" opacity="0.7"/>
+          </svg>
+
+          <!-- Central SAIYAN Network Hub -->
+          <div class="orbital-central-hub" onclick="window.openPlaceholderModal('SAIYAN Network Hub', 'The central bilateral coordination nexus connecting youth builders with global opportunities.')" title="SAIYAN Central Connector">
+            <div class="hub-pulse-ring" aria-hidden="true"></div>
+            <div class="hub-core-card">
+              <svg class="hub-cat-logo" viewBox="0 0 40 40" fill="none">
+                <polygon points="8,18 4,6 17,13" fill="#071522"/>
+                <polygon points="32,18 36,6 23,13" fill="#071522"/>
+                <ellipse cx="20" cy="22" rx="16" ry="13" fill="#071522"/>
+                <ellipse cx="14" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+                <ellipse cx="14" cy="21" rx="1.8" ry="4" fill="#000000"/>
+                <ellipse cx="26" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+                <ellipse cx="26" cy="21" rx="1.8" ry="4" fill="#000000"/>
+                <circle cx="15" cy="19" r="1.2" fill="#ffffff"/>
+                <circle cx="27" cy="19" r="1.2" fill="#ffffff"/>
+                <polygon points="19,25 21,25 20,27" fill="#F0443E"/>
+              </svg>
+              <div class="hub-brand-name">SAIYAN</div>
+              <div class="hub-tagline">NETWORK HUB</div>
+            </div>
+          </div>
+
+          <!-- 6 Partner Categories Distributed around the Orbital Rings -->
+
+          <!-- 1. TECHNOLOGY PARTNERS (Top-Left: Coral Accent) -->
+          <div class="orbital-category-group cat-pos-top-left" onclick="window.openPlaceholderModal('Technology Partners', 'Compute, foundational models, AI tooling and developer infrastructure partners.')">
+            <div class="category-node-chip chip-coral">
+              <span class="chip-dot dot-coral"></span>
+              <span class="chip-label">TECHNOLOGY PARTNERS</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Compute & AI Infrastructure (Verified Partner slot)">
+                <span class="partner-capsule-name">Compute & Infra</span>
+              </div>
+              <div class="partner-logo-capsule" title="Foundational AI Tooling (Verified Partner slot)">
+                <span class="partner-capsule-name">Tooling Partners</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. UNIVERSITY PARTNERS (Top-Right: Teal / Green Accent) -->
+          <div class="orbital-category-group cat-pos-top-right" onclick="window.openPlaceholderModal('University Partners', 'Academic research labs, student innovation centres and exchange universities.')">
+            <div class="category-node-chip chip-teal">
+              <span class="chip-dot dot-teal"></span>
+              <span class="chip-label">UNIVERSITY PARTNERS</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Singapore Higher Education Alliances">
+                <span class="partner-capsule-name">Singapore Labs</span>
+              </div>
+              <div class="partner-logo-capsule" title="Sarawak Academic Institutions">
+                <span class="partner-capsule-name">Sarawak Universities</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. INDUSTRY PARTNERS (Middle-Right: Bright Blue Accent) -->
+          <div class="orbital-category-group cat-pos-mid-right" onclick="window.openChallengeModal()">
+            <div class="category-node-chip chip-blue">
+              <span class="chip-dot dot-blue"></span>
+              <span class="chip-label">INDUSTRY PARTNERS</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Enterprise Problem Brief Providers">
+                <span class="partner-capsule-name">Enterprise Briefs</span>
+              </div>
+              <div class="partner-logo-capsule" title="Innovation Cohort Sponsors">
+                <span class="partner-capsule-name">Challenge Sponsors</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. GOVERNMENT / INSTITUTION (Bottom-Right: Deep Navy Accent) -->
+          <div class="orbital-category-group cat-pos-bottom-right" onclick="window.openPartnerModal()">
+            <div class="category-node-chip chip-navy">
+              <span class="chip-dot dot-navy"></span>
+              <span class="chip-label">GOVERNMENT / INSTITUTION</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Bilateral Youth & Digital Economy Agencies">
+                <span class="partner-capsule-name">Public Initiatives</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. COMMUNITY PARTNERS (Bottom-Left: Warm Orange Accent) -->
+          <div class="orbital-category-group cat-pos-bottom-left" onclick="window.openPlaceholderModal('Community Partners', 'Youth networks, grassroot maker clubs and regional innovation hubs across Sarawak.')">
+            <div class="category-node-chip chip-orange">
+              <span class="chip-dot dot-orange"></span>
+              <span class="chip-label">COMMUNITY PARTNERS</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Youth & Grassroot Innovation Clubs">
+                <span class="partner-capsule-name">Youth Alliances</span>
+              </div>
+              <div class="partner-logo-capsule" title="Regional Tech Hubs">
+                <span class="partner-capsule-name">Regional Hubs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. SPONSORS & MENTORS (Middle-Left: Soft Purple Accent) -->
+          <div class="orbital-category-group cat-pos-mid-left" onclick="window.openPartnerModal()">
+            <div class="category-node-chip chip-purple">
+              <span class="chip-dot dot-purple"></span>
+              <span class="chip-label">SPONSORS & SUPPORTERS</span>
+            </div>
+            <div class="partner-capsule-list">
+              <div class="partner-logo-capsule" title="Ecosystem Grant & Compute Supporters">
+                <span class="partner-capsule-name">Ecosystem Grants</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtle Mascot Companion near the outer orbital trajectory -->
+          <div class="orbital-mascot-companion" onclick="window.openPlaceholderModal('Usei Usei Cat', 'Guiding builders and connecting partners across our orbital ecosystem!')" title="Usei Usei Cat at Orbital Network">
+            <svg viewBox="0 0 80 80" fill="none">
+              <polygon points="15,35 8,10 32,24" fill="#18181b"/>
+              <polygon points="65,35 72,10 48,24" fill="#18181b"/>
+              <ellipse cx="40" cy="45" rx="30" ry="24" fill="#18181b"/>
+              <ellipse cx="28" cy="43" rx="7" ry="8" fill="#FFC857"/>
+              <ellipse cx="28" cy="43" rx="3" ry="7" fill="#000000"/>
+              <ellipse cx="52" cy="43" rx="7" ry="8" fill="#FFC857"/>
+              <ellipse cx="52" cy="43" rx="3" ry="7" fill="#000000"/>
+              <polygon points="38,55 42,55 40,58" fill="#F0443E"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. FINAL CTA SECTION (Ultra Compact Spacing & Image Insertion Canvas)
+         ======================================================================= -->
+    <section class="final-cta-section" id="final-cta">
+      <div class="container">
+        <div class="final-cta-card">
+          <!-- Optional Full Banner Background Image Overlay -->
+          <div class="cta-bg-image-overlay" id="ctaBgOverlay" aria-hidden="true"></div>
+
+          <!-- Left Text & Actions Content Block -->
+          <div class="final-cta-content">
+            <h2 class="final-cta-title">
+              Ready to build the future with us?
+            </h2>
+            <p class="final-cta-subline">
+              Your future doesn’t have a border.
+            </p>
+
+            <div class="final-cta-buttons">
+              <a href="join.html" class="btn btn-coral"><span>JOIN SAIYAN</span><span>→</span></a>
+              <button class="btn btn-cyan" onclick="window.openChallengeModal()">
+                <span>BRING US A CHALLENGE</span>
+              </button>
+              <button class="btn btn-purple" onclick="window.openPartnerModal()">
+                <span>BECOME A PARTNER</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Customizable Image / Artwork Display Area -->
+          <div class="cta-visual-showcase" id="ctaVisualContainer">
+            <div class="cta-illustration-frame" id="ctaIllustrationFrame">
+              <svg class="cta-network-skyline-vector" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Singapore & Sarawak Bilateral Skyline Arcs -->
+                <path d="M 40 180 L 40 100 L 70 100 L 70 180" stroke="#316BFF" stroke-width="2.5" opacity="0.45"/>
+                <path d="M 90 180 L 90 70 L 125 70 L 125 180" stroke="#316BFF" stroke-width="2.5" opacity="0.6"/>
+                <path d="M 180 180 L 210 30 L 240 180" stroke="#316BFF" stroke-width="3" opacity="0.75"/>
+                <path d="M 330 180 L 365 90 L 400 180" stroke="#0E7C8A" stroke-width="2.5" opacity="0.55"/>
+
+                <!-- Glowing Cross-Border Connection Lines -->
+                <path d="M 60 100 C 130 20, 260 50, 370 90" stroke="#FF7548" stroke-width="2" stroke-dasharray="5 5" opacity="0.75"/>
+                <path d="M 110 70 C 200 130, 280 20, 365 90" stroke="#52C9D9" stroke-width="2" opacity="0.75"/>
+
+                <!-- Glowing Nodes -->
+                <circle cx="60" cy="100" r="5" fill="#316BFF"/>
+                <circle cx="210" cy="30" r="6" fill="#F0443E"/>
+                <circle cx="365" cy="90" r="5" fill="#42C7A5"/>
+                <circle cx="270" cy="80" r="4" fill="#FFC857"/>
+              </svg>
+
+              <!-- Usei Usei Cat Mascot -->
+              <div class="cta-mascot-duo" onclick="window.openPlaceholderModal('Usei Usei Cat', 'Ready to build what matters with you!')" title="Usei Usei Cat Companion">
+                <svg viewBox="0 0 100 100" fill="none">
+                  <polygon points="20,40 10,12 40,28" fill="#18181b"/>
+                  <polygon points="80,40 90,12 60,28" fill="#18181b"/>
+                  <ellipse cx="50" cy="52" rx="38" ry="30" fill="#18181b"/>
+                  <ellipse cx="36" cy="50" rx="10" ry="11" fill="#FFC857"/>
+                  <ellipse cx="36" cy="50" rx="4" ry="9" fill="#000000"/>
+                  <ellipse cx="64" cy="50" rx="10" ry="11" fill="#FFC857"/>
+                  <ellipse cx="64" cy="50" rx="4" ry="9" fill="#000000"/>
+                  <circle cx="38" cy="46" r="2.5" fill="#ffffff"/>
+                  <circle cx="66" cy="46" r="2.5" fill="#ffffff"/>
+                  <polygon points="48,63 52,63 50,66" fill="#F0443E"/>
+                  <path d="M44 70 Q 50 74 56 70" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       8. DARK MIDNIGHT NAVY FOOTER (3 Balanced Navigation Columns, CONNECT Removed)
+       ========================================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <!-- Subtle Decorative Journey Terminus Background Line -->
+    <svg class="footer-journey-decor" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 680 0 C 680 50, 480 70, 360 85 C 240 100, 140 120, 100 150" stroke="rgba(82, 201, 217, 0.22)" stroke-width="1.8" stroke-dasharray="4 6" fill="none"/>
+      <circle cx="100" cy="150" r="3.5" fill="#52C9D9" opacity="0.6"/>
+    </svg>
+
+    <div class="container" style="position:relative; z-index:10;">
+      <div class="footer-top">
+        <!-- Brand Area -->
+        <div class="footer-brand-column">
+          <a href="#" class="brand-wrapper" style="margin-bottom:12px; display:inline-flex;" aria-label="SAIYAN Homepage">
+            <svg class="brand-mascot-head" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="8,18 4,6 17,13" fill="#ffffff"/>
+              <polygon points="32,18 36,6 23,13" fill="#ffffff"/>
+              <ellipse cx="20" cy="22" rx="16" ry="13" fill="#ffffff"/>
+              <ellipse cx="14" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+              <ellipse cx="14" cy="21" rx="1.8" ry="4" fill="#000000"/>
+              <ellipse cx="26" cy="21" rx="4.5" ry="5" fill="#FFC857"/>
+              <ellipse cx="26" cy="21" rx="1.8" ry="4" fill="#000000"/>
+              <circle cx="15" cy="19" r="1.2" fill="#ffffff"/>
+              <circle cx="27" cy="19" r="1.2" fill="#ffffff"/>
+              <polygon points="19,25 21,25 20,27" fill="#F0443E"/>
+            </svg>
+            <span class="brand-title" style="color:#FFFFFF; font-size:1.4rem;">SAIYAN</span>
+          </a>
+          <p class="footer-brand-desc">
+            Singapore–Sarawak AI youth network for builders, organisations and mentors.
+          </p>
+          <div class="footer-social-wrapper">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-instagram-pill" aria-label="Follow SAIYAN on Instagram @saiyanbuilders">
+              <span class="ig-gradient-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </span>
+              <span class="ig-label">Follow <strong style="color:#FFFFFF;">@saiyanbuilders</strong></span>
+              <span class="ig-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 1: EXPLORE -->
+        <div>
+          <h4 class="footer-heading">EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="youth.html">For Youth</a></li>
+            <li><a href="organisations.html">For Organisations</a></li>
+            <li><a href="#partners">Partners</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: PROGRAMMES -->
+        <div>
+          <h4 class="footer-heading">PROGRAMMES</h4>
+          <ul class="footer-links">
+            <li><a href="#programmes" onclick="window.openPlaceholderModal('SAIYAN Academy', 'Practical AI learning and capability development masterclasses.'); return false;">SAIYAN Academy</a></li>
+            <li><a href="#programmes" onclick="window.openPlaceholderModal('SAIYAN Missions', 'Hackathons, innovation challenges and real-world problem solving.'); return false;">SAIYAN Missions</a></li>
+            <li><a href="#programmes" onclick="window.openPlaceholderModal('SAIYAN Build', 'Digital and AI implementation projects for real organisations.'); return false;">SAIYAN Build</a></li>
+            <li><a href="#programmes" onclick="window.openPlaceholderModal('Sailor SAIYAN', 'Singapore–Sarawak mobility, exchanges and cross-border collaboration.'); return false;">Sailor SAIYAN</a></li>
+            <li><a href="#programmes" onclick="window.openPlaceholderModal('SAIYAN Opportunities', 'Mentorship, projects, industry exposure and future pathways.'); return false;">SAIYAN Opportunities</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: RESOURCES -->
+        
+      </div>
+
+      <!-- Legal Row -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 SAIYAN. All rights reserved.</div>
+        <div class="footer-region-badge">
+          <svg class="flag-svg" viewBox="0 0 24 16" width="20" height="13.3" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="8" fill="#ED2939"/>
+  <rect y="8" width="24" height="8" fill="#FFFFFF"/>
+  <circle cx="5.5" cy="4" r="2.8" fill="#FFFFFF"/>
+  <circle cx="6.5" cy="4" r="2.5" fill="#ED2939"/>
+  <circle cx="8" cy="2.5" r="0.4" fill="#FFFFFF"/>
+  <circle cx="9" cy="3.5" r="0.4" fill="#FFFFFF"/>
+  <circle cx="8.6" cy="4.8" r="0.4" fill="#FFFFFF"/>
+  <circle cx="7.4" cy="4.8" r="0.4" fill="#FFFFFF"/>
+  <circle cx="7" cy="3.5" r="0.4" fill="#FFFFFF"/>
+</svg>
+          <span class="region-text">Singapore</span>
+          <span class="region-cross">×</span>
+          <span class="region-text">Sarawak</span>
+          <svg class="flag-svg" viewBox="0 0 24 16" width="20" height="13.3" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow Field -->
+  <rect width="24" height="16" fill="#FFD100"/>
+  <!-- Diagonal Black Stripe -->
+  <polygon points="0,0 24,12 24,16 0,4" fill="#000000"/>
+  <!-- Diagonal Red Stripe -->
+  <polygon points="0,4 24,16 24,16 0,16" fill="#D90000" opacity="0"/>
+  <polygon points="0,0 24,12 24,8 0,0" fill="#D90000"/>
+  <!-- 9-pointed Yellow Star in Center -->
+  <circle cx="12" cy="8" r="2.2" fill="#FFD100"/>
+  <!-- Precise 9-point star shape -->
+  <path d="M 12 5.6 L 12.6 7.2 L 14.2 6.8 L 13.2 8.1 L 14.4 9.3 L 12.8 9.5 L 12 11 L 11.2 9.5 L 9.6 9.3 L 10.8 8.1 L 9.8 6.8 L 11.4 7.2 Z" fill="#FFD100"/>
+</svg>
+        </div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      <h3 class="modal-title" id="modalTitle">Modal Title</h3>
+      <p class="modal-subtitle" id="modalSubtitle">Modal Subtitle</p>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
