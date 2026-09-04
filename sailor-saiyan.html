@@ -19,6 +19,9 @@
   <!-- =========================================================================
        1. HEADER (Top Navigation with SAILOR SAIYAN Active Underline)
        ========================================================================= -->
+    <!-- =========================================================================
+       1. FLAT EDITORIAL HEADER & MOBILE NAVIGATION
+       ========================================================================= -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <!-- Brand & Mascot Logo -->
@@ -38,7 +41,7 @@
         <span class="brand-title">SAIYAN</span>
       </a>
 
-      <!-- Navigation Links in exact order -->
+      <!-- Desktop Navigation Links in exact order -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
         <a href="about.html" class="nav-link">ABOUT</a>
         <a href="youth.html" class="nav-link">FOR YOUTH</a>
@@ -48,15 +51,44 @@
         <a href="index.html#partners" class="nav-link">PARTNERS</a>
       </nav>
 
-      <!-- Right Header Action -->
+      <!-- Right Header Actions (Desktop CTA + Mobile Menu Button) -->
       <div class="header-action">
-        <a href="join.html" class="btn btn-coral">
+        <a href="join.html" class="btn btn-coral desktop-header-cta">
           <span>JOIN SAIYAN</span>
           <span>→</span>
         </a>
+        
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <span class="mobile-drawer-brand">SAIYAN MENU</span>
+      <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="about.html" class="mobile-nav-item">ABOUT</a></li>
+      <li><a href="youth.html" class="mobile-nav-item">FOR YOUTH</a></li>
+      <li><a href="organisations.html" class="mobile-nav-item">FOR ORGANISATIONS</a></li>
+      <li><a href="programmes.html" class="mobile-nav-item">PROGRAMMES</a></li>
+      <li><a href="sailor-saiyan.html" class="mobile-nav-item active">SAILOR SAIYAN</a></li>
+      <li><a href="index.html#partners" class="mobile-nav-item">PARTNERS</a></li>
+    </ul>
+    <div class="mobile-nav-footer-cta">
+      <a href="join.html" class="btn btn-coral" style="width:100%; justify-content:center;">
+        <span>JOIN SAIYAN</span>
+        <span>→</span>
+      </a>
+    </div>
+  </nav>
 
   <main id="main-content">
     
@@ -774,5 +806,47 @@
   </footer>
 
   <script src="assets/sailor.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const closeBtn = document.getElementById('mobileDrawerClose');
+      const drawer = document.getElementById('mobileNavDrawer');
+      const backdrop = document.getElementById('mobileNavBackdrop');
+      const navLinks = document.querySelectorAll('.mobile-nav-item, .mobile-nav-footer-cta a');
+
+      function openMenu() {
+        if (!drawer || !backdrop || !menuBtn) return;
+        drawer.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('mobile-nav-locked');
+      }
+
+      function closeMenu() {
+        if (!drawer || !backdrop || !menuBtn) return;
+        drawer.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('mobile-nav-locked');
+      }
+
+      if (menuBtn) menuBtn.addEventListener('click', openMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
