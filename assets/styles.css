@@ -6234,3 +6234,189 @@ body.mobile-nav-locked {
     gap: 12px;
   }
 }
+
+/* ==========================================================================
+   20. HERO RESPONSIVE REFACTOR (MOBILE-FIRST FLOATING LABELS & ZERO OVERFLOW)
+   ========================================================================== */
+
+/* Z-Index Hierarchy Standard */
+.hero-curve-bg { z-index: 0; }
+.hero-journey-rail { z-index: 1; }
+.hero-visual-bleed { z-index: 2; }
+.hero-visual-photo { z-index: 2; }
+.hero-landmark-tag-sg, .hero-landmark-tag-swk, .hero-ui-overlay-left, .hero-ui-overlay-right { z-index: 3; }
+.hero-layout-wrapper { z-index: 5; }
+.persistent-mascot-container { z-index: 10; }
+.mobile-nav-drawer { z-index: 1100; }
+.modal-overlay { z-index: 999999; }
+
+/* Responsive adjustments for Tablet & Mobile (<= 1023px) */
+@media (max-width: 1023px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-layout-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-text-block {
+    transform: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: left;
+  }
+
+  .section-eyebrow {
+    font-size: clamp(0.72rem, 2.5vw, 0.84rem);
+    margin-bottom: 14px;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  .hero-supporting {
+    font-size: clamp(1rem, 3vw, 1.18rem);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .hero-subline {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    margin-bottom: 22px;
+  }
+
+  /* Follow The Journey: Horizontal subtle pill in hero text area on mobile */
+  .hero-journey-rail {
+    display: none !important;
+  }
+
+  /* Hero Visual becomes a standalone relative block inside container flow */
+  .hero-visual-bleed {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 320px !important;
+    margin: 16px auto 0 !important;
+    overflow: hidden !important;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 30px rgba(7, 21, 34, 0.08);
+    pointer-events: auto !important;
+  }
+
+  .hero-visual-blend-scene {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .hero-visual-photo {
+    object-position: center bottom !important;
+  }
+
+  /* Relative Positioned Mobile Labels inside the Visual Card */
+  .hero-landmark-tag-sg {
+    top: 14px !important;
+    left: 14px !important;
+    right: auto !important;
+    font-size: 0.68rem !important;
+    padding: 3px 10px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+
+  .hero-landmark-tag-swk {
+    top: 14px !important;
+    right: 14px !important;
+    left: auto !important;
+    font-size: 0.68rem !important;
+    padding: 3px 10px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+
+  .hero-ui-overlay-left {
+    top: auto !important;
+    bottom: 14px !important;
+    left: 14px !important;
+    padding: 6px 10px !important;
+    width: 110px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-ui-overlay-right {
+    top: auto !important;
+    bottom: 14px !important;
+    right: 14px !important;
+    padding: 6px 10px !important;
+    width: 110px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-ui-header {
+    font-size: 0.62rem !important;
+  }
+}
+
+/* Specific Small Mobile (<= 414px & 320px) */
+@media (max-width: 480px) {
+  .hero-visual-bleed {
+    height: 250px !important;
+  }
+
+  .hero-landmark-tag-sg {
+    top: 10px !important;
+    left: 10px !important;
+    font-size: 0.64rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .hero-landmark-tag-swk {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 0.64rem !important;
+    padding: 3px 8px !important;
+  }
+
+  /* Compact Telemetry at narrow viewports to avoid center clash */
+  .hero-ui-overlay-left {
+    bottom: 10px !important;
+    left: 10px !important;
+    width: 95px !important;
+    padding: 5px 8px !important;
+  }
+
+  .hero-ui-overlay-right {
+    bottom: 10px !important;
+    right: 10px !important;
+    width: 95px !important;
+    padding: 5px 8px !important;
+  }
+}
+
+/* Extra Narrow (<= 340px) */
+@media (max-width: 340px) {
+  .hero-ui-overlay-left, .hero-ui-overlay-right {
+    display: none !important; /* Hide secondary telemetry at 320px while preserving SG & SWK tags */
+  }
+  .hero-visual-bleed {
+    height: 210px !important;
+  }
+}
